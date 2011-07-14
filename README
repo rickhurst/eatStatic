@@ -7,8 +7,8 @@ This is a PHP5 microframework that mainly uses static text files and json files
 for storage. It evolved from a number of different projects and thought it 
 would be useful to formalise it a bit and make it available as open source.
 
-It is intended as a "drop in" library to provide useful fucntionality to an existing PHP 
-site. Included is an example site with a dimple front controller that shows how it can be 
+It is intended as a "drop in" library to provide useful functionality to an existing PHP 
+site. Also included is an example site with a simple front controller that shows how it can be 
 used to build a web site, and an "admin site" which contains admin tools. The intention is
 that the admin site will eventually contain some automatically generated admin forms for 
 editing different page types (e.g. "generic page", "case study")

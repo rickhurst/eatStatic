@@ -1,0 +1,22 @@
+eatStatic
+----------
+
+Rick Hurst 2011-07-14 www.rickhurst.co.uk rick.hurst@gmail.com
+
+This is a PHP5 microframework that mainly uses static text files and json files
+for storage. It evolved from a number of different projects and thought it 
+would be useful to formalise it a bit and make it available as open source.
+
+It is intended as a "drop in" library to provide useful fucntionality to an existing PHP 
+site. Included is an example site with a dimple front controller that shows how it can be 
+used to build a web site, and an "admin site" which contains admin tools. The intention is
+that the admin site will eventually contain some automatically generated admin forms for 
+editing different page types (e.g. "generic page", "case study")
+
+As for data storage - the text file driven blog example was put together to allow me to
+maintain a travel blog (http://ontheroad.rickhurst.co.uk) with limited internet connectivity -
+blog posts were written in textmate/ emacs and uploaded to the server when a connection was available.
+The json file storage idea was put together for another project - I didn't want to go down the mysql 
+route and it just seemed like a blindingly simple idea to save php object instances to the filesystem
+using json_encode. This works really well, but probably won't scale very well, so i'm now looking at 
+providing switchable mongodb support for larger/ higher traffic applications.

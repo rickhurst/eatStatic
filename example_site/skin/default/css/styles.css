@@ -1,0 +1,10 @@
+/* Theme specific file here */
+
+body {
+    font-family: arial, helvetica, sans-serif;
+    padding:10px;
+}
+
+.clear {
+    clear: both;
+}

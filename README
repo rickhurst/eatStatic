@@ -3,6 +3,10 @@ eatStatic
 
 Rick Hurst 2011-07-14 www.rickhurst.co.uk rick.hurst@gmail.com
 
+IMPORTANT: feel free to use this code, but don't dive in and expect the example site 
+to work just yet, i'm just in the process of collating code from different sites
+and setting up a working demo!
+
 This is a PHP5 microframework that mainly uses static text files and json files
 for storage. It evolved from a number of different projects and thought it 
 would be useful to formalise it a bit and make it available as open source.

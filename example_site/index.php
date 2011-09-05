@@ -36,9 +36,9 @@ $url = str_replace("?".$_SERVER["QUERY_STRING"],"",$_SERVER["REQUEST_URI"]);
  * to accomodate people who can't use url rewriting, this allows a url to
  * be specified in the format ?p=/here/is/the/url
  */
-if(($url == '') && (eatStatic::getValue('p') != '')){
-	$url = eatStatic::getValue('p');
-}
+// if(($url == '') && (eatStatic::getValue('p') != '')){
+//  $url = eatStatic::getValue('p');
+// }
 
 $path = explode("/",trim($url,"/"));
 $path = array_pad($path, 10, "");
@@ -65,25 +65,67 @@ $stub = '';
 try {
 	switch($path[0]) { 
 		
+		
+		/**
+		 * blog URL handling
+		 */
+		
+		
 		/**
 		 * home page
 		 */
 		case "":
-		
-			$stub = '';
-			
-			$stub = "page_home.php";
-			
+			$stub = "blog_index.php";
 		break;
 		
 		/**
-		 * questionnaire
+		 * blog post page
 		 */
-		case "questionnaire":
-			// handover to the questionnaire display controller
-			require_once 'application/modules/questionnaire/qneController.class.php';
-			new qneController;
+		case "posts":
+			$stub = "post.php";
+			$slug = str_replace(PAGE_EXT,"",$path[1]);
 		break;
+		
+		/**
+		 * blog archive - either direct to the blog archive index or an archive page
+		 */
+		case "archive":
+			switch($path[1]) {
+				case "":
+					$stub = "archive_index.php";
+				break;
+				default:
+					$slug = str_replace(PAGE_EXT,"",$path[1]);
+					$stub = "archive_page.php";
+				break;
+			}
+		break;
+		
+		/**
+		 * Categories (AKA "Tags")
+		*/
+		case "category":
+			switch($path[1]) {
+				case "":
+					$stub = "category_index.php";
+				break;
+				default:
+					$slug = str_replace(PAGE_EXT,"",$path[1]);
+					$stub = "category_page.php";
+				break;
+			}
+		break;
+		
+		 
+		
+        /**
+         * example of how a module can be included
+         */
+        // case "questionnaire":
+        //  // handover to the questionnaire display controller
+        //  require_once 'application/modules/questionnaire/qneController.class.php';
+        //  new qneController;
+        // break;
 
 		
 		/**

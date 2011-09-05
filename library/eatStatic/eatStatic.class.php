@@ -9,8 +9,12 @@
  * the methods are conveniently available. At the very least this class can be used 
  * on it's own to provide these helpers
  *
- * @version 0.1.0
+ * @version 0.1.2
  * 2011-07-13 - Rick Hurst added notes version number 0.1.0 
+ * 2011-08-19 - Rick Hurst changed read_file() to use file_get_contents()
+ *              Due to bug with missing last few characters off a file
+ * 2011-08-24 - Rick Hurst added getFileType()
+ * 2011-09-05 - Rick Hurst updated block() to use EATSTATIC_ROOT 
  */
 
 class eatStatic {
@@ -42,10 +46,11 @@ class eatStatic {
 	 */
 	function read_file($path){
 		if(file_exists($path)){
-			$handle = fopen($path,'r');
-			$str = fread($handle, filesize($path));
-			return $str;
-			fclose($handle);
+            // $handle = fopen($path,'r');
+            // $str = fread($handle, filesize($path));
+            // return $str;
+            // fclose($handle);
+            return file_get_contents($path);
 		}
 	}
 	
@@ -65,6 +70,26 @@ class eatStatic {
 	function getExtension($filename){
 		$path_info = pathinfo($filename);
 		return $path_info['extension'];
+	}
+	
+	/**
+	 * @desc return file type based on extension
+	 */
+	function getFileType($filename){
+	    switch(strtolower(eatStatic::getExtension($filename))){
+	        case "jpg":
+	            $type = 'image/jpeg';
+	        break;
+	        case "gif":
+	            $type = 'image/gif';
+	        break;
+	        case "png":
+	            $type = 'image/png';
+	        break;
+	        case "mov":
+	            $type = 'video/quicktime';
+	        break;
+	    }
 	}
 
 	/**
@@ -136,7 +161,7 @@ class eatStatic {
 	 * @desc convenience method to return a block
 	 */
 	public function block($block){
-		require_once(ROOT."/eatStatic/eatStaticBlock.class.php");
+		require_once(EATSTATIC_ROOT."/eatStaticBlock.class.php");
 		$block = new eatStaticBlock($block);
 		return $block->getBlock();
 	}
@@ -237,25 +262,20 @@ class eatStatic {
 	 */
 	function makeNormalArray($arr){
 		$out = array();
-		foreach($arr as $item){
-			//echo $key;
-			foreach($item as $key=>$val){
-				if($key == 'value'){
-					$value = $val;
-				}
-			}
-			$out[] = $value;
-		}
+		if(is_array($arr)){
+    		foreach($arr as $item){
+    			//echo $key;
+    			foreach($item as $key=>$val){
+    				if($key == 'value'){
+    					$value = $val;
+    				}
+    			}
+    			$out[] = $value;
+    		}
+	    }
 		return $out;
 	}
 	
-	/**
-	 * TODO: view any eatStatic object for debugging
-	 */
-	public function viewObject($folder, $filename){
-		// hmm - a generic object viewer will probably require some eval() nastiness - leave for now!
-		// maybe this should only be available in admin anyway for security
-	}
 
 	
 }

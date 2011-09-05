@@ -5,6 +5,7 @@
  *
  * @version 0.1.0
  * 2011-07-13 - Rick Hurst added version number 0.1.0
+ * 2011-09-05 - Rick Hurst extension parameter added to getFileNames()
  */
 
 class eatStaticStorage extends eatStatic {
@@ -72,7 +73,7 @@ class eatStaticStorage extends eatStatic {
 	/**
 	 * @desc return an array of file paths for specified data sub dir
 	 */
-	public function getFileNames($folder){
+	public function getFileNames($folder, $ext='json'){
 		$file_names = array();
 		$dir = DATA_ROOT.'/'.$folder.'/';
 		//echo $dir;
@@ -82,7 +83,7 @@ class eatStaticStorage extends eatStatic {
 		            //echo "filename: $file : filetype: " . filetype($dir . $file) . "\n";
 					if(
 						(filetype($dir . $file) == 'file') && 
-						(substr($file,-4) == "json")
+						(substr($file,-4) == $ext)
 					){
 						// for each post found
 						$file_names[] = $file;

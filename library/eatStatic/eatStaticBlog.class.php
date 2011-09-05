@@ -1,10 +1,12 @@
 <?php
 
 /**
- * @version 0.1.0
+ * @version 0.1.1
  * 2011-07-13 - Rick Hurst added version number 0.1.0
+ * 2011-09-05 - Rick Hurst merged with working version from www.rickhurst.co.uk
+ *            - Rick Hurst ES_ROOT replaced with SITE_ROOT
+ *            - Rick Hurst added search function
  */
-
 
 
 class eatStaticBlog extends eatStatic {
@@ -17,14 +19,14 @@ class eatStaticBlog extends eatStatic {
 		
 		if(USE_CACHE){
 			// see if cache file exists
-			if(file_exists(DATA_ROOT.'/cache/all_posts.json')){
-				$this->post_files = json_decode(eatStatic::read_file(DATA_ROOT.'/cache/all_posts.json'));
+			if(file_exists(CACHE_ROOT.'/all_posts.json')){
+				$this->post_files = json_decode(eatStatic::read_file(CACHE_ROOT.'/all_posts.json'));
 			} else {
 				// load posts from disk
 				$this->getPostFilesFromDisk();
 				
 				// write array of post files to disk as JSON
-				eatStatic::write_file(json_encode($this->post_files), DATA_ROOT.'/cache/all_posts.json');
+				eatStatic::write_file(json_encode($this->post_files), CACHE_ROOT.'/all_posts.json');
 			}
 		} else {
 			$this->getPostFilesFromDisk();
@@ -39,13 +41,13 @@ class eatStaticBlog extends eatStatic {
 		            //echo "filename: $file : filetype: " . filetype($this->post_folder . $file) . "\n";
 					if(
 						(filetype($this->post_folder . $file) == 'file') && 
-						($post_count < $this->recent_limit) &&
 						(substr($file,-3) == "txt")
 					){
 						// for each post found
 						$this->post_files[] = $this->post_folder . $file;
 					}
 		        }
+		        sort($this->post_files);
 		        closedir($dh);
 		    }
 		}
@@ -58,11 +60,11 @@ class eatStaticBlog extends eatStatic {
 		
 		if(USE_CACHE){
 			// see if cache file exists
-			if(file_exists(DATA_ROOT.'/cache/recent_files.json')){
-				$recent_files = json_decode($this->read_file(DATA_ROOT.'/cache/recent_files.json'));
+			if(file_exists(CACHE_ROOT.'/recent_files.json')){
+				$recent_files = json_decode($this->read_file(CACHE_ROOT.'/recent_files.json'));
 			} else {
 				$recent_files = $this->getRecentPostsArray();
-				$this->write_file(json_encode($recent_files), DATA_ROOT.'/cache/recent_files.json');
+				$this->write_file(json_encode($recent_files), CACHE_ROOT.'/recent_files.json');
 			}
 		} else {
 			$recent_files = $this->getRecentPostsArray();
@@ -129,10 +131,20 @@ class eatStaticBlog extends eatStatic {
 				$item = new eatStaticBlogArchiveItem;
 				$item->month_slug = $current_month;
 				$item->month_desc = date('F Y', strtotime($current_month."-01 00:00:00"));
+				$item->month = date('F', strtotime($current_month."-01 00:00:00"));
+				$item->year = date('Y', strtotime($current_month."-01 00:00:00"));
+				
+				if(WP_URLS){
+				    $item->uri = SITE_ROOT.date('Y', strtotime($current_month."-01 00:00:00")).'/'.date('m', strtotime($current_month."-01 00:00:00")).'/';
+				} else {
+				    $item->uri = SITE_ROOT.'archive/'.$item->month_slug.PAGE_EXT;
+				}
+				
 				$items[] = $item;
 			}
 			$last_month = $current_month;	
 		}
+		$items = array_reverse($items);
 		return $items;
 	}
 	
@@ -153,7 +165,96 @@ class eatStaticBlog extends eatStatic {
 			}
 		}
 		return $posts;
-	}	
+	}
+	
+	// taken from http://www.zachstronaut.com/posts/2009/01/20/php-relative-date-time-string.html
+	public function time_elapsed_string($ptime) {
+        $etime = time() - $ptime;
+
+        if ($etime < 1) {
+            return '0 seconds';
+        }
+
+        $a = array( 12 * 30 * 24 * 60 * 60  =>  'year',
+                    30 * 24 * 60 * 60       =>  'month',
+                    24 * 60 * 60            =>  'day',
+                    60 * 60                 =>  'hour',
+                    60                      =>  'minute',
+                    1                       =>  'second'
+                    );
+
+        foreach ($a as $secs => $str) {
+            $d = $etime / $secs;
+            if ($d >= 1) {
+                $r = round($d);
+                return $r . ' ' . $str . ($r > 1 ? 's' : '');
+            }
+        }
+    }
+    
+    public function obsoleteWarning($ptime){
+         $etime = time() - $ptime;
+         
+         $years = round($etime /(12 * 30 * 24 * 60 * 60));
+         
+         if ($years > 4 ){
+             ?>
+             <div class="warning">
+             This post was written <b><?php echo $years ?> years ago</b>, which in internet time is <em>really, really</em> old. This means that what is written above, and the links contained within, may now be obsolete, inaccurate or wildly out of context, so please bear that in mind :)
+             </div>
+             <?php
+         }
+         
+    }
+    
+    /**
+     * @desc search all posts and return array of post slugs
+     */
+    public function search($term){
+        $matches = array();
+        
+        $dir = DATA_ROOT.'/posts/';
+		//echo $dir;
+		if (is_dir($dir)) {
+		    if ($dh = opendir($dir)) {
+		        while (($file = readdir($dh)) !== false) {
+		            //echo "filename: $file : filetype: " . filetype($dir . $file) . "\n";
+					if(
+						(filetype($dir . $file) == 'file') && 
+						(substr($file,-4) == '.txt')
+					){
+						// for each post found
+						
+						$content = eatStatic::read_file($dir.$file);
+						$match_count = substr_count($content,$term);
+						if($match_count > 0){
+						    $matches[] = array('count'=>$match_count, 'file'=>$file);
+						}
+						//$matches[] = array('1', $file);
+						
+					}
+		        }
+		        closedir($dh);
+		    }
+		}
+        
+        // see http://php.net/manual/en/function.array-multisort.php
+        
+        // sort the array by matches
+        // Obtain a list of columns
+        foreach ($matches as $key => $row) {
+            $count[$key]  = $row['count'];
+            $file[$key] = $row['file'];
+        }
+
+        // Sort the data with volume descending, edition ascending
+        // Add $data as the last parameter, to sort by the common key
+        array_multisort($count, SORT_DESC, $file, SORT_ASC, $matches);
+        
+        return $matches;
+    }
+    
+    	
 }
 
 class eatStaticBlogPost extends eatStatic {
@@ -171,6 +272,7 @@ class eatStaticBlogPost extends eatStatic {
 	var $author = BLOG_AUTHOR;
 	var $keywords = '';
 	var $description = '';
+	var $uri;
 	
 	function hydrate(){
 		
@@ -232,10 +334,21 @@ class eatStaticBlogPost extends eatStatic {
 		$this->slug = str_replace('.txt','',$this->file_name);
 		$this->date = substr($this->file_name, 0, 10);
 		$this->nice_date = date(NICE_DATE_FORMAT, strtotime($this->date));
+		$this->timestamp = strtotime($this->date);
 		
 		// get gallery items if there are any
 		$gallery = new eatStaticGallery(str_replace('.txt','/', $this->file_name ));
 		$this->gallery_items = $gallery->gallery_items;
+		
+		// set up the URI
+		if(WP_URLS){
+		    
+		    $date_str = date('Y', strtotime($this->date)).'-'.date('m', strtotime($this->date)).'-'.date('d', strtotime($this->date));
+		    
+		    $this->uri = SITE_ROOT.date('Y', strtotime($this->date)).'/'.date('m', strtotime($this->date)).'/'.date('d', strtotime($this->date)).'/'.str_replace($date_str .'-','',$this->slug).'/';
+		} else {
+		    $this->uri = SITE_ROOT.'posts/'.$this->slug.PAGE_EXT;
+		}
 		
 	}
 	
@@ -247,7 +360,9 @@ class eatStaticBlogPost extends eatStatic {
 			case "tags":
 				$tags = explode(",", $value);
 				foreach($tags as $tag){
-					$this->tags[] = trim($tag);
+				    if(trim($tag) != ''){
+					    $this->tags[] = trim($tag);
+				    }
 				}
 			break;
 			case "keywords":

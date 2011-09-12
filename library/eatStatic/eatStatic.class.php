@@ -15,6 +15,8 @@
  *              Due to bug with missing last few characters off a file
  * 2011-08-24 - Rick Hurst added getFileType()
  * 2011-09-05 - Rick Hurst updated block() to use EATSTATIC_ROOT 
+ * 2011-09-09 - Rick Hurst added option to use array in selected()
+ * 2011-09-12 - Rick Hurst merged 2011-09-09 changes from another project
  */
 
 class eatStatic {
@@ -224,8 +226,16 @@ class eatStatic {
 	
 	/**
 	 * @desc used in forms to decide if a select list option is pre selected
+	 * second value can be array
 	 */
 	function selected($val1, $val2){
+	    if(is_array($val2)){
+			foreach($val2 as $val){
+				if($val1 == $val){
+					return 'selected="selected"';
+				}
+			}
+		}
 		if($val1 == $val2){
 			return 'selected="selected"';
 		}

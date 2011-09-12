@@ -3,9 +3,13 @@
  * @desc this class handles storage of objects,
  *	this paves the way for different types of storage e.g. disk vs relational db vs mongo
  *
- * @version 0.1.0
+ * @version 0.1.2
  * 2011-07-13 - Rick Hurst added version number 0.1.0
+ * 2011-08-19 - Rick Hurst added getCatalogs method
  * 2011-09-05 - Rick Hurst extension parameter added to getFileNames()
+ * 2011-09-08 - Rick Hurst added storage type check to recordExists
+ *                         added getAll()
+ * 2011-09-12 - Rick Hurst merged changes from another project
  */
 
 class eatStaticStorage extends eatStatic {
@@ -43,10 +47,12 @@ class eatStaticStorage extends eatStatic {
 	}
 	
 	public function recordExists($folder, $object_id){
-		$file_path = DATA_ROOT.'/'.$folder.'/'.$object_id.'.json';
-		if(file_exists($file_path)){
-			return true;
-		}
+	    if(STORAGE_TYPE == 'ES_JSON'){
+    		$file_path = DATA_ROOT.'/'.$folder.'/'.$object_id.'.json';
+    		if(file_exists($file_path)){
+    			return true;
+    		}
+	    }
 	}
 	
 	public function retrieve($folder, $object_id){
@@ -95,10 +101,40 @@ class eatStaticStorage extends eatStatic {
 		return ($file_names);
 	}
 	
+	/**
+	 * return an array of object id's for specified folder
+	 */
+	public function getAll($folder, $ext='json'){
+	    $items = array();
+	    if(STORAGE_TYPE == 'ES_JSON'){
+	        $files = eatStaticStorage::getFileNames($folder);
+	        
+	        foreach($files as $file){
+	            $items[] = substr($file, 0, -5);
+	        }
+	    }
+	    return $items;
+	}
+	
 	public function delete($folder, $object_id){
 		if(STORAGE_TYPE == 'ES_JSON'){
 			rename(DATA_ROOT.'/'.$folder.'/'.$object_id.'.json', DATA_ROOT.'/deleted_'.$folder.'/'.$object_id.'.json');
 		}
+	}
+	
+	/**
+	 * @desc return a list of catalogs for specified data store
+	 */
+	public function getCatalogs($folder){
+        if(STORAGE_TYPE == 'ES_JSON'){
+            $files = eatStaticStorage::getFilenames($folder.'/catalog');
+            $items = array();
+            foreach($files as $file){
+                // remove .json from end and stick in items array
+                $items[] = substr($file, 0, -5);
+            }
+            return $items;
+        }
 	}
 	
 }

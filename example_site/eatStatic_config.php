@@ -43,6 +43,18 @@ define('SNAPSHOT', false);
 
 define('WP_URLS', true); // use wordpress url scheme
 
+// SQL fake filesystem settings
+define('SQL_FS', true);
+if('SQL_FS'){
+    define('DB_SERVER', 'localhost');
+    define('DB_USERNAME', 'eatstatic');
+    define('DB_PASSWORD', 'eatstatic');
+    define('DB_DATABASE', 'eatstatic');
+    define('SQL_FS_TABLE', 'fs');
+    require_once(EATSTATIC_ROOT."/eatStaticSQL.class.php");
+    require_once(EATSTATIC_ROOT."/eatStaticFakeFS.class.php");
+}
+
 //$login_exceptions = array('login','logged-out');
 
 

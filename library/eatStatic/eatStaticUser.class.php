@@ -1,8 +1,9 @@
 <?php
 
 /**
- * @version 0.1.0
+ * @version 0.1.1
  * 2011-07-13 - Rick Hurst added version number 0.1.0
+ * 2011-09-12 - Rick Hurst add loadFromId()
  */
 
 class eatStaticUser  extends eatStatic {
@@ -59,6 +60,17 @@ class eatStaticUser  extends eatStatic {
 	public function load($username){
 		$user = eatStaticStorage::retrieve('users', $username);
 		return $user;
+	}
+	
+	/**
+	 * @desc hydrates the current eatStaticUser
+	 */
+	public function loadFromId($username){
+	    $stored_data = eatStaticStorage::retrieve('users', $username);
+	    $this->fullname = $stored_data->fullname;
+	    $this->teams = $stored_data->teams;
+	    $this->roles = $stored_data->roles;
+	    $this->username = $stored_data->username;
 	}
 	
 	/**

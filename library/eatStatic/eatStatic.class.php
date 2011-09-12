@@ -9,7 +9,7 @@
  * the methods are conveniently available. At the very least this class can be used 
  * on it's own to provide these helpers
  *
- * @version 0.1.2
+ * @version 0.1.3
  * 2011-07-13 - Rick Hurst added notes version number 0.1.0 
  * 2011-08-19 - Rick Hurst changed read_file() to use file_get_contents()
  *              Due to bug with missing last few characters off a file
@@ -17,6 +17,7 @@
  * 2011-09-05 - Rick Hurst updated block() to use EATSTATIC_ROOT 
  * 2011-09-09 - Rick Hurst added option to use array in selected()
  * 2011-09-12 - Rick Hurst merged 2011-09-09 changes from another project
+ *                          added uri() method
  */
 
 class eatStatic {
@@ -284,6 +285,14 @@ class eatStatic {
     		}
 	    }
 		return $out;
+	}
+	
+	/**
+	 * @desc return current URI - on proxied setups this may need
+	 * some logic adding
+	 */
+	public function uri(){
+	    return $_SERVER['REQUEST_URI'];
 	}
 	
 

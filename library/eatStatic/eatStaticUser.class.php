@@ -75,7 +75,13 @@ class eatStaticUser  extends eatStatic {
 	    $stored_data = eatStaticStorage::retrieve('users', $username);
 	    $this->fullname = $stored_data->fullname;
 	    $this->teams = $stored_data->teams;
+	    if(!is_array($this->teams)){
+	        $this->teams = array();
+	    }
 	    $this->roles = $stored_data->roles;
+	    if(!is_array($this->roles)){
+	        $this->roles = array();
+	    }
 	    $this->username = $stored_data->username;
 	    $this->password_hash = $stored_data->password_hash;
 	}
@@ -88,7 +94,13 @@ class eatStaticUser  extends eatStatic {
 	    $this->new_username = eatStatic::getValue('user_username','post');
 	    $this->new_password = eatStatic::getValue('user_password', 'post');
 	    $this->roles = eatStatic::getValue('user_roles', 'post');
+	    if(!is_array($this->roles)){
+	        $this->roles = array();
+	    }
 	    $this->teams = eatStatic::getValue('user_teams', 'post');
+	    if(!is_array($this->teams)){
+	        $this->teams = array();
+	    }
 	}
 	
 	/**

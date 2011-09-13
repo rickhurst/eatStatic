@@ -1,8 +1,10 @@
 <?php
 
 /**
- * one json file per team, listing users. 
+ * @version 0.1.0
+ * @desc one json file per team, listing users. 
  * user objects also list team for quick lookup in either direction
+ * 2011-09-13 Rick Hurst added version no. 0.1.0 and removeMember function
  */
 
 class eatStaticTeam {
@@ -23,6 +25,12 @@ class eatStaticTeam {
     public function addMember($username){
         if(!in_array($username, $this->users)){
             $this->users[] = $username;
+        }
+    }
+    
+    public function removeMember($username){
+        if(in_array($username, $this->users)){
+            $this->users = array_diff($this->users, array($username));
         }
     }
     

@@ -20,9 +20,11 @@ class eatStaticUser  extends eatStatic {
 	/**
 	 * @desc checks that a username only contains letters, numbers, hypens, underscores and dots
 	 */
-	public function usernameOK($str){
+	public function usernameOK($str, $min=1, $max=30){
 		if (preg_match('/^[a-zA-Z0-9._-]+$/',$str)){
-			return true;
+		    if(strlen($str) >= $min && strlen($str) <= $max){
+			    return true;
+		    }
 		} else {
 			return false;
 		}
@@ -31,9 +33,11 @@ class eatStaticUser  extends eatStatic {
 	/**
 	 * @desc checks that a password only contains letters, numbers, hypens, underscores and dots
 	 */
-	public function passwordOK($str){
+	public function passwordOK($str, $min=5, $max=30){
 		if (preg_match('/^[a-zA-Z0-9._-]+$/',$str)){
-			return true;
+		    if(strlen($str) >= $min && strlen($str) <= $max){
+			    return true;
+		    }
 		} else {
 			return false;
 		}
@@ -73,6 +77,7 @@ class eatStaticUser  extends eatStatic {
 	    $this->teams = $stored_data->teams;
 	    $this->roles = $stored_data->roles;
 	    $this->username = $stored_data->username;
+	    $this->password_hash = $stored_data->password_hash;
 	}
 	
 	/**

@@ -1,9 +1,11 @@
 <?php
 
 /**
- * @version 0.1.1
+ * @version 0.1.2
  * 2011-07-13 - Rick Hurst added version number 0.1.0
  * 2011-09-12 - Rick Hurst add loadFromId()
+ * 2011-09-13 - Rick Hurst added delete() and save()
+ *                          version changed to 0.1.2 
  */
 
 class eatStaticUser  extends eatStatic {
@@ -74,6 +76,17 @@ class eatStaticUser  extends eatStatic {
 	}
 	
 	/**
+	 * @desc load user details from form vars
+	 */
+	public function loadFromForm(){
+	    $this->fullname = eatStatic::getValue('user_fullname','post');
+	    $this->new_username = eatStatic::getValue('user_username','post');
+	    $this->new_password = eatStatic::getValue('user_password', 'post');
+	    $this->roles = eatStatic::getValue('user_roles', 'post');
+	    $this->teams = eatStatic::getValue('user_teams', 'post');
+	}
+	
+	/**
 	* @desc creates a new user record
 	*/
 	public function create(){
@@ -94,6 +107,20 @@ class eatStaticUser  extends eatStatic {
 		}
 		
 	}
+	
+	/**
+	 * @desc save user record
+	 */
+	public function save(){
+	    eatStaticStorage::store('users', $this->username, $this);
+	}
+	
+	/**
+	 * @desc delete user record
+	 */
+	 public function delete() {
+	     eatStaticStorage::delete('users', $this->username);
+	 }
 	
 	/**
 	 * @desc add a string to the teams array

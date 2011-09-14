@@ -1,11 +1,12 @@
 <?php
 
 /**
- * @version 0.1.2
+ * @version 0.1.3
  * 2011-07-13 - Rick Hurst added version number 0.1.0
  * 2011-09-12 - Rick Hurst add loadFromId()
  * 2011-09-13 - Rick Hurst added delete() and save()
  *                          version changed to 0.1.2 
+ * 2011-09-14 - Rick Hurst added getUserNames()
  */
 
 class eatStaticUser  extends eatStatic {
@@ -151,6 +152,13 @@ class eatStaticUser  extends eatStatic {
 	 */
 	public function addRole($str){
 		$this->roles[] = $str;
+	}
+	
+	/**
+	 * @desc return array of user id's/ names
+	 */
+	public function getUserNames(){
+	    return eatStaticStorage::getAll('users');
 	}
 }
 ?>

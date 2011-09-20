@@ -93,6 +93,7 @@ class eatStatic {
 	            $type = 'video/quicktime';
 	        break;
 	    }
+	    return $type;
 	}
 
 	/**

@@ -1,11 +1,12 @@
 <?php
 
 /**
- * @version 0.1.1
+ * @version 0.1.2
  * 2011-07-13 - Rick Hurst added version number 0.1.0
  * 2011-09-05 - Rick Hurst merged with working version from www.rickhurst.co.uk
  *            - Rick Hurst ES_ROOT replaced with SITE_ROOT
  *            - Rick Hurst added search function
+ * 2011-09-20 - Rick Hurst removed pipe from line splitting, upped version to 0.1.2
  */
 
 
@@ -280,7 +281,7 @@ class eatStaticBlogPost extends eatStatic {
 		if($this->raw_data == ''){
 			// no post content found
 		}
-		$parts =  split("[\n|\r]", $this->raw_data);
+		$parts =  split("[\n\r]", $this->raw_data);
 		
 		$str = '';
 		$format_str = '';

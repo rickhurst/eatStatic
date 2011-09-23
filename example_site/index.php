@@ -116,6 +116,10 @@ try {
 			}
 		break;
 		
+		case "test-fs":
+		    $stub = 'test_sql_fs.php';
+		break;
+		
 		 
 		
         /**

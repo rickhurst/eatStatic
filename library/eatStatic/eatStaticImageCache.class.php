@@ -2,10 +2,12 @@
 /**
  * @desc image cache class - ideas taken from:-
  * http://icant.co.uk/articles/phpthumbnails/
- * http://www.design-ireland.net/?http%3A//www.design-ireland.net/article/Implementing_an_Image_Cache_for_PHP_GD
+ * http://www.design-ireland.net/article/Implementing_an_Image_Cache_for_PHP_GD
  *
- * @version 0.1.0
+ * @version 0.1.1
  * 2011-07-13 - Rick Hurst added version number 0.1.0
+ * 2011-09-23 - Rick Hurst added option image cache folder to construct
+ *                         upped version to 0.1.1
  */
 
 class eatStaticImageCache  extends eatStatic {
@@ -26,9 +28,12 @@ class eatStaticImageCache  extends eatStatic {
 	var $content_type;
 
 	
-	function __construct($source_folder='', $source_file_name, $width, $cache_sub_folder){
-		// set headers for jepg
-		//header('Content-type: image/jpeg');
+	function __construct($source_folder='', $source_file_name, $width, $cache_sub_folder, $image_cache_folder=''){
+	    
+	    if($image_cache_folder != ''){
+	        $this->image_cache_folder = $image_cache_folder;
+	    }
+
 		if($source_folder !=''){
 			$this->source_folder = $source_folder;
 			$this->source_file_name = $source_file_name;
@@ -73,6 +78,9 @@ class eatStaticImageCache  extends eatStatic {
 	}
 	
 	function getImage(){
+	    
+        // echo $this->image_path;
+        // die();
 		
 		header('Content-type: '.$this->content_type);
 		if (file_exists($this->image_path)) {

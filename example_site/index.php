@@ -58,6 +58,27 @@ $path = array_pad($path, 10, "");
 // 	}
 // }
 
+if(WP_URLS){
+    
+    // TODO - block/  301 redirect for any native URL's (e.g. 'posts/2008-...) that sneak through
+    // TODO - move this to eatStaticBlog::wpUrls();
+    
+    // deal with wordpress urls e.g 2006/11/21/this-is-a-slug/
+    if(is_numeric($path[0]) && is_numeric($path[1]) && is_numeric($path[2])){
+        $slug = $path[0].'-'.$path[1].'-'.$path[2].'-'.$path[3];
+        $path[0] = 'posts';
+        $path[1] = $slug;
+    }
+    
+    // archive urls
+    if(is_numeric($path[0]) && is_numeric($path[1]) && ($path[2] == '')){
+        $slug = $path[0].'-'.$path[1];
+        $path[0] = 'archive';
+        $path[1] = $slug;
+    }
+
+}
+
 // load user object (not a proper eatStaticUser instance) from session
 $user = unserialize(eatStatic::getValue('user','session'));
 $stub = '';

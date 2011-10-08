@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title><?php echo $page_title ?></title>
+	<title><?php if (isset($page_title)) echo $page_title ?></title>
 	
 	<?php
 	if(!isset($meta_keywords)){

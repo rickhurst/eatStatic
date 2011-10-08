@@ -92,7 +92,7 @@ class eatStaticTag extends eatStatic {
 		if(file_exists($json_file)){
 			// TODO make backup - timestamp + username in filename
 		}
-		write_file(json_encode($this), $json_file);
+		eatStatic::write_file(json_encode($this), $json_file);
 	}
 	
 	public function fileNameFromName(){

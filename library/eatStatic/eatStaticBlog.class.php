@@ -281,7 +281,7 @@ class eatStaticBlogPost extends eatStatic {
 		if($this->raw_data == ''){
 			// no post content found
 		}
-		$parts =  split("[\n\r]", $this->raw_data);
+		$parts =  explode("\n", $this->raw_data);
 		
 		$str = '';
 		$format_str = '';

@@ -29,7 +29,7 @@ define('BLOG_TITLE', 'eatStatic blog example site');
 define('BLOG_TAG_LINE', '');
 define('BLOG_AUTHOR', 'Rick Hurst');
 define('PAGE_EXT', '');
-define('USE_CACHE', true);
+define('USE_CACHE', false);
 define('SITE_ROOT','/'); // change this if you move the location of the site index.php e.g. '/blog/';
 define('DISQUS_ENABLED', false);
 define('DISQUS_IDENTIFIER','');

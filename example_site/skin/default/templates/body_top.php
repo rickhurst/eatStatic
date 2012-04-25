@@ -1,21 +1,24 @@
 <body>
-	<div class="main-wrapper">
-		
-		<header>
-			<div class="masthead">
-				<div class="inner">
-				    <span class="strapline"><a href="/"><?php echo BLOG_TITLE ?></a></span>
-				</div>
-			</div>
-			<nav>
-				<div class="inner">
-				    <div class="visual-padding">
-					    <a href="/">home</a> | <a href="/about">about</a> | <a href="/contact">contact</a> | <a href="/archive">archive</a> | <a href="/category">categories</a>
-				    </div>
-				</div>
-			</nav>
-		</header>
-		<div class="content">
-			<div class="inner">
-				<div class="col2">
-					<div class="visual-wrapper">
+
+		<div class="navbar navbar-fixed-top">
+	      <div class="navbar-inner">
+	        <div class="container">
+	          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+	            <span class="icon-bar"></span>
+	            <span class="icon-bar"></span>
+	            <span class="icon-bar"></span>
+	          </a>
+	          <a class="brand" href="#"><?php echo BLOG_TITLE ?></a>
+	          <div class="nav-collapse">
+	            <ul class="nav">
+	              <li class="active"><a href="/">Home</a></li>
+	              <li><a href="/about">About</a></li>
+	              <li><a href="/contact">Contact</a></li>
+	              <li><a href="/archive">Archive</a></li>
+	            </ul>
+	          </div><!--/.nav-collapse -->
+	        </div>
+	      </div>
+	    </div>
+
+		<div class="container">

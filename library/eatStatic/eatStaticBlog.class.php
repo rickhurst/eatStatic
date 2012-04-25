@@ -153,6 +153,7 @@ class eatStaticBlog extends eatStatic {
 		$this->getPostFiles();
 		$posts = array();
 		//echo '['.$month_slug.']';
+		$post_count = 0;
 		foreach($this->post_files as $post_file){
 			//echo '['.substr(basename($file), 0, 7).']';
 			if(substr(basename($post_file), 0, 7) == $month_slug){

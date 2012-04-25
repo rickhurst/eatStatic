@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 	<title><?php if (isset($page_title)) echo $page_title ?></title>
 	
@@ -15,14 +15,18 @@
 	<meta name="description" content="<?php echo $meta_description ?>" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0" /> 
 	<link rel="alternate" type="application/rss+xml" title="<?php echo BLOG_TITLE ?>" href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/feed/" />
-	<link type="text/css" rel="stylesheet" href="/skin/global/css/reset.css" />
-	<link type="text/css" rel="stylesheet" href="/skin/<?php echo SKIN ?>/css/styles.css" />
+	<link type="text/css" rel="stylesheet" href="/skin/<?php echo SKIN ?>/css/bootstrap.min.css" />
+	<link type="text/css" rel="stylesheet" href="/skin/<?php echo SKIN ?>/css/style.css" />
+	<link type="text/css" rel="stylesheet" href="/skin/<?php echo SKIN ?>/css/bootstrap-responsive.min.css" />
 	<link type="text/css" rel="stylesheet" href="/css/jquery.lightbox-0.5.css" />
 	<link rel="shortcut icon" type="image/x-icon" href="/skin/rickblog/img/favicon.ico" />
 	<script type="text/javascript" src="/js/jquery-1.4.2.min.js"></script>
 	<script type="text/javascript" src="/js/jquery.lightbox-0.5.js"></script>
 	<script type="text/javascript" src="/js/html5shiv.js"></script>
-
+	<!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
 	<?php
 	if($production){ 
 		if(GOOGLE_ANALYTICS_ID != ''){

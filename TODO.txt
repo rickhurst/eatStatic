@@ -1,7 +1,9 @@
 - create branch 'legacy' to archive off current state
 - strip down master branch to only stuff useful for an eatStatic blog site
 - cteate live demo + documentation site running from master branch
-- 'prev' and 'next' on posts
-- keyword search
-- category RSS feeds
-- online editing and gallery uploading
+- create dev branch for new features to be cherry picked into master:
+	- 'prev' and 'next' on posts
+	- keyword search
+	- category RSS feeds
+	- online editing and gallery uploading
+	- support markdown?

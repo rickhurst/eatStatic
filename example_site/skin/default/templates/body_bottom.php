@@ -6,6 +6,7 @@
     						<?php
     						echo eatStatic::block("about"); 
     						 ?>
+    						 <a href="/about">Read More</a>
     						</div>
     						<?php
     					} ?>

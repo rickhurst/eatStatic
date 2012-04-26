@@ -3,3 +3,25 @@ body {
 	padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
 	padding-bottom: 40px;
 }
+
+.post {
+    padding-bottom:20px;
+    border-bottom:1px dotted #ccc;
+	margin-bottom:20px;
+}
+
+.post .date {
+	font-size:10px;
+	color:#999;
+	margin-bottom:5px;
+}
+
+.post .ago {
+    color: #CDCDCD;
+    font-family: georgia;
+    font-style: italic;
+}
+
+.post .body {
+	margin-bottom:10px;
+}

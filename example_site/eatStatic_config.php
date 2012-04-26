@@ -13,7 +13,7 @@ define('DATA_ROOT', str_replace('example_site','data', ROOT));
 // eatStatic library path (assumes admin_site and data folders on same level)
 define('EATSTATIC_ROOT', str_replace('example_site','library/eatStatic', ROOT));
 
-$production = false;
+$production = true;
 if($_SERVER['HTTP_HOST'] == 'eatstatic.olivewoodstudio.com'){
 	$production = true;
 }

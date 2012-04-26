@@ -1,0 +1,12 @@
+Demo site online!
+
+The eatStatic demo site is now running as an unmodified clone of the master branch of the <a href="http://github.com/rickhurst/eatStatic">github repo</a>. To install (full instructions to follow):-
+
+<ol>
+	<li>Download or clone the <a href="http://github.com/rickhurst/eatStatic">code</a></li>
+	<li>Take a look at eatStatic_config.php - in particular you will need to change the host name, used to detect whether the site is in production or development mode</li>
+	<li>Make sure the "data" folder is writable, then run /scripts/setup.php to check and create the cache folders</li>
+</ol>
+
+--
+tags: documentation, project update

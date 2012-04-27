@@ -18,5 +18,5 @@
 		require ROOT.'/skin/global/templates/disqus_js_embed.php';
 	}
 	?>
-	<script src="/skin/<?php echo SKIN ?>/js/bootstrap.js"></script>
+	<script src="/skin/global/js/lib/bootstrap.js"></script>
 </body>

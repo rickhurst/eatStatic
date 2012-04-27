@@ -1,10 +1,9 @@
-					
+    				</div>
+    				<div class="span4">
+    					<?php if($path[0] == ""){ echo eatStatic::block("about"); } ?>
+    				</div>
+    			</div><!-- /.row-fluid -->				
 
-				<div class="nav-col">
-					<div class="visual-wrapper">
-						<?php if($path[0] == ""){ echo eatStatic::block("about"); } ?>
-					</div>
-				</div>
 				<hr />
 				<footer>
 			

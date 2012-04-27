@@ -18,11 +18,7 @@
 	<link type="text/css" rel="stylesheet" href="/skin/<?php echo SKIN ?>/css/bootstrap.min.css" />
 	<link type="text/css" rel="stylesheet" href="/skin/<?php echo SKIN ?>/css/style.css" />
 	<link type="text/css" rel="stylesheet" href="/skin/<?php echo SKIN ?>/css/bootstrap-responsive.min.css" />
-	<link type="text/css" rel="stylesheet" href="/css/jquery.lightbox-0.5.css" />
-	<link rel="shortcut icon" type="image/x-icon" href="/skin/rickblog/img/favicon.ico" />
-	<script type="text/javascript" src="/js/jquery-1.4.2.min.js"></script>
-	<script type="text/javascript" src="/js/jquery.lightbox-0.5.js"></script>
-	<script type="text/javascript" src="/js/html5shiv.js"></script>
+	<script type="text/javascript" src="/skin/global/js/lib/jquery-1.7.2.js"></script>
 	<!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
       <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>

@@ -14,7 +14,6 @@
 				
 		</div><!-- container -->
 
-	</div><!-- main-wrapper-->
 	<?php
 	if(DISQUS_ENABLED){
 		require ROOT.'/skin/global/templates/disqus_js_embed.php';

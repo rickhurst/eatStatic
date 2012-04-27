@@ -137,9 +137,12 @@ try {
 			}
 		break;
 		
-		case "test-fs":
-		    $stub = 'test_sql_fs.php';
-		break;
+		/**
+		 * for testing the sql fake filesystem, if in use
+		 */
+		// case "test-fs":
+		//     $stub = 'test_sql_fs.php';
+		// break;
 		
 		 
 		

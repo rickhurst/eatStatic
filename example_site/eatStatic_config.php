@@ -14,10 +14,9 @@ define('DATA_ROOT', str_replace('example_site','data', ROOT));
 define('EATSTATIC_ROOT', str_replace('example_site','library/eatStatic', ROOT));
 
 $production = false;
-if($_SERVER['HTTP_HOST'] == 'eatstatic.blog.olivewoodstudio.com'){
+if($_SERVER['HTTP_HOST'] == 'eatstatic.olivewoodstudio.com'){
 	$production = true;
 }
-
 
 require_once(EATSTATIC_ROOT."/eatStatic.class.php");
 require_once(EATSTATIC_ROOT."/eatStaticError.class.php");
@@ -46,13 +45,13 @@ define('WP_URLS', true); // use wordpress url scheme
 define('CACHE_ROOT', str_replace('example_site','data/cache', ROOT));
 
 // SQL fake filesystem settings
-define('SQL_FS', true);
+define('SQL_FS', false);
 if('SQL_FS'){
     define('DB_SERVER', 'localhost');
-    define('DB_USERNAME', 'eatstatic');
-    define('DB_PASSWORD', 'eatstatic');
-    define('DB_DATABASE', 'eatstatic');
-    define('SQL_FS_TABLE', 'fs');
+    define('DB_USERNAME', '');
+    define('DB_PASSWORD', '');
+    define('DB_DATABASE', '');
+    define('SQL_FS_TABLE', 'eatstatic_fs');
     require_once(EATSTATIC_ROOT."/eatStaticSQL.class.php");
     require_once(EATSTATIC_ROOT."/eatStaticFakeFS.class.php");
 }

@@ -121,24 +121,13 @@ try {
 				break;
 			}
 		break;
-		
+
 		/**
-		 * for testing the sql fake filesystem, if in use
+		 * Image handling using the image cache
 		 */
-		// case "test-fs":
-		//     $stub = 'test_sql_fs.php';
-		// break;
-		
-		 
-		
-        /**
-         * example of how a module can be included
-         */
-        // case "questionnaire":
-        //  // handover to the questionnaire display controller
-        //  require_once 'application/modules/questionnaire/qneController.class.php';
-        //  new qneController;
-        // break;
+		case "images":
+			require_once(EATSTATIC_ROOT."/eatStaticImageCacheController.class.php");
+		break;
 
 		
 		/**

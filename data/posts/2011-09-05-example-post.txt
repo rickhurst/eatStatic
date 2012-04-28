@@ -1,7 +1,9 @@
-This is a post
+This is a post - the title is the first line of the text file
 
-This is the body of the post HTML <em>is</em> allowed.
+This is the body of the post HTML <em>is</em> allowed. Line breaks are retained, so you can mostly add content without any HTML if you like.
 
-Line breaks are retained
+Post files are saved using the naming convention YYYY-MM-DD-post-slug.txt, e.g This file is named 2011-09-05-example-post.txt
+
+Using the WP_URLS setting, this can then be found at URL /2011/09/05/example-post
 --
 tags:example,foo,bar

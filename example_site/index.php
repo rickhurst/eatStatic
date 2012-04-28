@@ -43,21 +43,6 @@ $url = str_replace("?".$_SERVER["QUERY_STRING"],"",$_SERVER["REQUEST_URI"]);
 $path = explode("/",trim($url,"/"));
 $path = array_pad($path, 10, "");
 
-/**
- * if this is a password protected app, check user is authenticated here
- */
-// if(LOGIN_REQUIRED){
-// 	require_once EATSTATIC_ROOT.'/eatStaticUser.class.php';
-// 	if(eatStatic::getValue('logged_in','session') != 1){
-// 		if(!in_array($path[0], $login_exceptions)){
-// 			header('location:'.SITE_ROOT.LOGIN_URL);
-// 			die();
-// 			//print_r($_SESSION);
-// 			//die('not logged in');
-// 		}
-// 	}
-// }
-
 if(WP_URLS){
     
     // TODO - block/  301 redirect for any native URL's (e.g. 'posts/2008-...) that sneak through

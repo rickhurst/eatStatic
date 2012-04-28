@@ -2,10 +2,7 @@
 
 require EATSTATIC_ROOT.'/eatStaticBlog.class.php';
 
-//$slug = getValue('slug');
-
 $blog = new eatStaticBlog;
-$blog->post_folder = DATA_ROOT.'/posts/';
 $posts = $blog->getArchiveList($slug);
 $page_title = BLOG_TITLE.' :: Archive '.$slug;
 

@@ -22,13 +22,18 @@ require_once(EATSTATIC_ROOT."/eatStatic.class.php");
 require_once(EATSTATIC_ROOT."/eatStaticError.class.php");
 require_once(EATSTATIC_ROOT."/eatStaticStorage.class.php");
 
+if($production){
+	define('USE_CACHE', true);
+} else {
+	define('USE_CACHE', false);
+}
+
 define('NICE_DATE_FORMAT', 'D, d M Y');
 define('SKIN','default');
 define('BLOG_TITLE', 'eatStatic blog example site');
 define('BLOG_TAG_LINE', '');
 define('BLOG_AUTHOR', 'Rick Hurst');
 define('PAGE_EXT', '');
-define('USE_CACHE', false);
 define('SITE_ROOT','/'); // change this if you move the location of the site index.php e.g. '/blog/';
 define('DISQUS_ENABLED', false);
 define('DISQUS_IDENTIFIER','');

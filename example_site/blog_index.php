@@ -3,7 +3,6 @@
 require EATSTATIC_ROOT.'/eatStaticBlog.class.php';
 
 $blog = new eatStaticBlog;
-$blog->post_folder = DATA_ROOT.'/posts/';
 $posts = $blog->getRecentPosts();
 $page_title = BLOG_TITLE.' :: '.BLOG_TAG_LINE;
 

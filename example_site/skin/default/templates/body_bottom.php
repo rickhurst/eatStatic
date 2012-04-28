@@ -1,6 +1,14 @@
     				</div>
     				<div class="span4">
-    					<?php if($path[0] == ""){ echo eatStatic::block("about"); } ?>
+    					<?php if($path[0] == ""){ 
+    						?>
+    						<div class="well">
+    						<?php
+    						echo eatStatic::block("about"); 
+    						 ?>
+    						</div>
+    						<?php
+    					} ?>
     				</div>
     			</div><!-- /.row-fluid -->				
 

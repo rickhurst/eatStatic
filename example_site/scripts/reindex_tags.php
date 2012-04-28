@@ -4,12 +4,10 @@
  */
 require '../eatStatic_config.php';
 
-
 require_once(EATSTATIC_ROOT."/eatStaticBlog.class.php");
 require_once(EATSTATIC_ROOT."/eatStaticTag.class.php");
 
 $blog = new eatStaticBlog;
-$blog->post_folder = DATA_ROOT.'/posts/';
 $blog->getPostFiles();
 
 print_r($blog);

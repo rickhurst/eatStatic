@@ -13,3 +13,7 @@ providing switchable mongodb support for larger/ higher traffic applications.
 The master branch powers the demo (and future documentation site) here:-
 
 http://eatstatic.olivewoodstudio.com/
+
+A slightly older version also powers my personal blog (with 600+ posts) here:-
+
+http://www.rickhurst.co.uk

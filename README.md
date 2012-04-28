@@ -1,7 +1,7 @@
 eatStatic
 ==========
 
-eatStatic is a text file driven blog which was originally put together to allow me to
+eatStatic is a text file driven blog engine which was originally put together to allow me to
 maintain a travel blog with limited internet connectivity - blog posts were written in textmate/ emacs 
 and uploaded to the server when a connection was available.
 

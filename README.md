@@ -1,7 +1,7 @@
 eatStatic
 ==========
 
-eatStatic is a text file driven blog which was originally put together to allow me to
+eatStatic is a text file driven blog engine which was originally put together to allow me to
 maintain a travel blog with limited internet connectivity - blog posts were written in textmate/ emacs 
 and uploaded to the server when a connection was available.
 
@@ -13,3 +13,7 @@ providing switchable mongodb support for larger/ higher traffic applications.
 The master branch powers the demo (and future documentation site) here:-
 
 http://eatstatic.olivewoodstudio.com/
+
+A slightly older version also powers my personal blog (with 600+ posts) here:-
+
+http://www.rickhurst.co.uk

@@ -42,7 +42,7 @@ foreach($items as $item){
 foreach($tags as $tag){
 	
 	?>
-	<span class="entry"><a href="<?php echo ES_ROOT ?>category/<?php echo $tag->getSlug() ?>"><?php echo $tag->name ?></a></span> / 		
+	<span class="entry"><a href="<?php echo SITE_ROOT ?>category/<?php echo $tag->getSlug() ?>"><?php echo $tag->name ?></a></span> / 		
 	<?php
 	
 }

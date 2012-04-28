@@ -34,6 +34,21 @@ foreach($items as $item){
 }
 
 ?>
+<div class="category-list">	
+<h2>Tags</h2>
+<?php
+
+
+foreach($tags as $tag){
+	
+	?>
+	<span class="entry"><a href="<?php echo ES_ROOT ?>category/<?php echo $tag->getSlug() ?>"><?php echo $tag->name ?></a></span> / 		
+	<?php
+	
+}
+
+?>
+</div> 
  
 <?php
 

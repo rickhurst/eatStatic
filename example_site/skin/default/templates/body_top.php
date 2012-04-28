@@ -8,7 +8,7 @@
 	            <span class="icon-bar"></span>
 	            <span class="icon-bar"></span>
 	          </a>
-	          <a class="brand" href="#"><?php echo BLOG_TITLE ?></a>
+	          <a class="brand" href="/"><?php echo BLOG_TITLE ?></a>
 	          <div class="nav-collapse">
 	            <ul class="nav">
 	              <li class="active"><a href="/">Home</a></li>

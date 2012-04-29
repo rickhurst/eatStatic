@@ -31,7 +31,7 @@ if($production){
 define('NICE_DATE_FORMAT', 'D, d M Y');
 define('SKIN','default');
 define('BLOG_TITLE', 'eatStatic');
-define('BLOG_TAG_LINE', 'eatStatic text file blog engine');
+define('BLOG_TAG_LINE', 'a PHP5 text file based blog engine');
 define('BLOG_AUTHOR', 'Rick Hurst');
 define('PAGE_EXT', '');
 define('SITE_ROOT','/'); // change this if you move the location of the site index.php e.g. '/blog/';

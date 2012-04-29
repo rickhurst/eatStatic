@@ -130,6 +130,13 @@ try {
 			new eatStaticImageCacheController();
 		break;
 
+		/**
+		 * The rss feed
+		 */
+		case "feed":
+			$stub = "rss.php";
+		break;
+
 		
 		/**
 		 * if we haven't found a match yet, try against simple page engine

@@ -40,4 +40,9 @@ if(file_exists(DATA_ROOT.'/cache/tags')){
 }
 
 // check cache/tags folder is writeable
+
+
+// check image cache folder is writeable
+
+// check phpGD stuff is installed
 ?>

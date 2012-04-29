@@ -1,11 +1,11 @@
 <?php 
 
-class eatStaticImageController {
+class eatStaticImageCacheController {
 
 
 	function __construct(){
 
-		global $stub, $path, $file_name, $gallery, $width;
+		global $stub, $path, $file_name, $gallery, $width, $url;
 
 		switch($path[1]){
 			case "":

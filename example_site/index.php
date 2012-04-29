@@ -127,6 +127,7 @@ try {
 		 */
 		case "images":
 			require_once(EATSTATIC_ROOT."/eatStaticImageCacheController.class.php");
+			new eatStaticImageCacheController();
 		break;
 
 		

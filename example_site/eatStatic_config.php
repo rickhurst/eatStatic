@@ -13,7 +13,7 @@ define('DATA_ROOT', str_replace('example_site','data', ROOT));
 // eatStatic library path (assumes admin_site and data folders on same level)
 define('EATSTATIC_ROOT', str_replace('example_site','library/eatStatic', ROOT));
 
-$production = true;
+$production = false;
 if($_SERVER['HTTP_HOST'] == 'eatstatic.olivewoodstudio.com'){
 	$production = true;
 }
@@ -30,16 +30,16 @@ if($production){
 
 define('NICE_DATE_FORMAT', 'D, d M Y');
 define('SKIN','default');
-define('BLOG_TITLE', 'eatStatic blog example site');
-define('BLOG_TAG_LINE', '');
+define('BLOG_TITLE', 'eatStatic');
+define('BLOG_TAG_LINE', 'eatStatic text file blog engine');
 define('BLOG_AUTHOR', 'Rick Hurst');
 define('PAGE_EXT', '');
 define('SITE_ROOT','/'); // change this if you move the location of the site index.php e.g. '/blog/';
 define('DISQUS_ENABLED', false);
 define('DISQUS_IDENTIFIER','');
 define('GOOGLE_ANALYTICS_ID','');
-define('GLOBAL_KEYWORDS', '');
-define('GLOBAL_DESCRIPTION', '');
+define('GLOBAL_KEYWORDS', 'eatStatic, text file blog engine, PHP5');
+define('GLOBAL_DESCRIPTION', 'eatStatic is a text file blog engine written in PHP5');
 define('LOGIN_REQUIRED', false);
 define('LOGIN_URL', 'login');
 define('STORAGE_TYPE', 'ES_JSON');

@@ -1,6 +1,6 @@
 eatStatic Image Cache working
 
-As eatStatic was set up as a travel blog, I wanted a convenient way to include photos in blog posts at a sensible size (e.g. 600 pixels wide), without having to resize images uploaded from my camera. Also I wanted to be able to upload images which were already at the right size, without having to upload them via any kind of image library. Any image uploaded to a subfolder (e.g. "misc/sunset.jpg") of your data/images folder can be included in a post by referencing it as e.g. /images/misc/filename_600.jpg.
+As eatStatic was set up as a travel blog, I wanted a convenient way to include photos in blog posts at a sensible size (e.g. 600 pixels wide), without having to manually resize images uploaded from my camera. Also I wanted to be able to upload images which were already at the right size, without having to upload them via any kind of image library. Any image uploaded to a subfolder (e.g. "misc/sunset.jpg") of your data/images folder can be included in a post by referencing it as e.g. /images/misc/filename_600.jpg.
 
 This uses PHP GD module to create a resized version of the image on demand and copy it to a corresponding subfolder in your images folder, including creating a subdirectory if necessary. This means that subsequent requests for the image are served up directly as a static file (delete it if you change the original and want it re-cached).
 

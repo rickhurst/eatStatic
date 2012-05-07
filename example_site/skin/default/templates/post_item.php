@@ -47,6 +47,16 @@
 		}
 	?>
 	</div>
+	<?php if ($show_prev_next): ?>
+		<div class="prev-next group">
+		<?php if($post->prev_url != ''): ?>
+			<a class="prev" href="<?php echo $post->prev_url ?>">previous post</a>
+		<?php endif; ?>
+		<?php if($post->next_url != ''): ?>
+			<a class="next" href="<?php echo $post->next_url ?>">next post</a>
+		<?php endif; ?>
+		</div>
+	<?php endif; ?>
 	<?php
 	}
 	?>

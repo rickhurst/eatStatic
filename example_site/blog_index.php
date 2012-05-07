@@ -6,6 +6,8 @@ $blog = new eatStaticBlog;
 $posts = $blog->getRecentPosts();
 $page_title = BLOG_TITLE.' :: '.BLOG_TAG_LINE;
 
+$show_prev_next = false;
+
 require ROOT.'/skin/'.SKIN.'/templates/page_top.php';
 require ROOT.'/skin/'.SKIN.'/templates/body_top.php';
 

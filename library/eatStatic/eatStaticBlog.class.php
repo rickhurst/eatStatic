@@ -279,6 +279,8 @@ class eatStaticBlogPost extends eatStatic {
 	var $keywords = '';
 	var $description = '';
 	var $uri;
+	var $next_url = '';
+	var $prev_url = '';
 	
 	function hydrate(){
 		
@@ -355,7 +357,38 @@ class eatStaticBlogPost extends eatStatic {
 		} else {
 		    $this->uri = SITE_ROOT.'posts/'.$this->slug.PAGE_EXT;
 		}
+
+		// get the next and previous urls
+		$blog = new eatStaticBlog();
+		$blog->getPostFiles();
+		foreach($blog->post_files as $key=>$val){
+			if($val == $this->data_file_path){
+				if($key > 0){
+					$this->prev_url = $this->uriFromFilename(basename($blog->post_files[$key - 1]));
+				}
+				if($key < (count($blog->post_files)-1)){
+					$this->next_url = $this->uriFromFilename(basename($blog->post_files[$key + 1]));
+				}
+			}
+
+		}
 		
+	}
+
+	private function uriFromFilename($file_name){
+		$post_date = substr($file_name, 0, 10);
+		$post_time = strtotime($post_date);
+		$post_slug = str_replace('.txt','',$file_name);
+
+		if(WP_URLS){
+		    $date_str = date('Y', $post_time).'-'.date('m', $post_time).'-'.date('d', $post_time);
+		    $uri = SITE_ROOT.date('Y', $post_time).'/'.date('m', $post_time).'/'.date('d', $post_time).'/'.str_replace($date_str .'-','',$post_slug).'/';
+		} else {
+		    $uri = SITE_ROOT.'posts/'.$post_slug.PAGE_EXT;
+		}
+
+		return $uri;
+
 	}
 	
 	private function handleMeta($str){

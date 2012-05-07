@@ -3,6 +3,8 @@ require EATSTATIC_ROOT.'/eatStaticBlog.class.php';
 
 //$slug = getValue('slug');
 
+$show_prev_next = true;
+
 $post = new eatStaticBlogPost;
 
 $post->data_file_path = DATA_ROOT.'/posts/'.$slug.'.txt';
@@ -29,7 +31,7 @@ if($post->description != ''){
 require ROOT.'/skin/'.SKIN.'/templates/page_top.php';
 require ROOT.'/skin/'.SKIN.'/templates/body_top.php';
 
-//print_r($post->description);
+//print_r($post);
 //die();
 
 require ROOT.'/skin/'.SKIN.'/templates/post_item.php';

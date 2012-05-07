@@ -1,0 +1,5 @@
+Previous and Next links
+
+When viewing a post directly, the "previous" and "next" links now show in the post template (if applicable). Theoretically there is a slight performance hit, because the previous and next links need to be looked up by getting all the post file names, either from cache or by reading from the filesystem.
+--
+tags: performance, project update 

@@ -2,6 +2,8 @@
 require EATSTATIC_ROOT.'/eatStaticBlog.class.php';
 require EATSTATIC_ROOT.'/eatStaticTag.class.php';
 
+$show_prev_next = false;
+
 $tag = new eatStaticTag;
 $tag->file_name = $slug.'.json'; // TODO: security validation of slug
 

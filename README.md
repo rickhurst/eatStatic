@@ -38,6 +38,6 @@ Some other features I would like to add in the nearish future:-
 * markdown support
 * blog post and block editing
 * image uploading and gallery management via web
-* prev' and 'next' on posts
+* prev' and 'next' on posts <- DONE
 * keyword search
 * category RSS feeds

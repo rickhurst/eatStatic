@@ -2,7 +2,7 @@
 - DONE strip down master branch to only stuff useful for an eatStatic blog site
 - DONE create live demo + documentation site running from master branch
 - create dev branch for new features to be cherry picked into master:
-	- 'prev' and 'next' on posts (shard all posts by year/month? cache page specific metadata on demand looking up against all posts?)
+	- DONE 'prev' and 'next' on posts (shard all posts by year/month? cache page specific metadata on demand looking up against all posts?)
 	- keyword search
 	- category RSS feeds
 	- online editing and gallery uploading (http://blueimp.github.com/jQuery-File-Upload/)

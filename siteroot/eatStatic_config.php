@@ -2,16 +2,19 @@
 error_reporting(E_ALL);
 ini_set('display_errors','On');
 
+// keep php 5.3 happy
+date_default_timezone_set('Europe/London');
+
 // dynamic ROOT
 if (!defined('ROOT')) {
 	define('ROOT', str_replace('/eatStatic_config.php', '', str_replace('\\', '/', realpath(__FILE__))));
 }
 
 // data folder path (assumes admin_site and data folders on same level)
-define('DATA_ROOT', str_replace('example_site','data', ROOT));
+define('DATA_ROOT', str_replace('siteroot','data', ROOT));
 
 // eatStatic library path (assumes admin_site and data folders on same level)
-define('EATSTATIC_ROOT', str_replace('example_site','library/eatStatic', ROOT));
+define('EATSTATIC_ROOT', str_replace('siteroot','library/eatStatic', ROOT));
 
 $production = false;
 if($_SERVER['HTTP_HOST'] == 'eatstatic.olivewoodstudio.com'){

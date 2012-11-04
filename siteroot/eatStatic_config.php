@@ -17,7 +17,7 @@ define('DATA_ROOT', str_replace('siteroot','ontheroad_data', ROOT));
 define('EATSTATIC_ROOT', str_replace('siteroot','library/eatStatic', ROOT));
 
 $production = false;
-if($_SERVER['HTTP_HOST'] == 'eatstatic.olivewoodstudio.com'){
+if($_SERVER['HTTP_HOST'] == 'ontheroad.rickhurst.co.uk'){
 	$production = true;
 }
 
@@ -33,16 +33,16 @@ if($production){
 
 define('NICE_DATE_FORMAT', 'D, d M Y');
 define('SKIN','default');
-define('BLOG_TITLE', 'eatStatic');
-define('BLOG_TAG_LINE', 'a PHP5 text file based blog engine');
+define('BLOG_TITLE', 'Rick on the Road');
+define('BLOG_TAG_LINE', 'adventures of a wannabe nomadic web developer');
 define('BLOG_AUTHOR', 'Rick Hurst');
 define('PAGE_EXT', '');
 define('SITE_ROOT','/'); // change this if you move the location of the site index.php e.g. '/blog/';
 define('DISQUS_ENABLED', false);
 define('DISQUS_IDENTIFIER','');
 define('GOOGLE_ANALYTICS_ID','');
-define('GLOBAL_KEYWORDS', 'eatStatic, text file blog engine, PHP5');
-define('GLOBAL_DESCRIPTION', 'eatStatic is a text file blog engine written in PHP5');
+define('GLOBAL_KEYWORDS', 'mobile working, camping, solar power, camper van');
+define('GLOBAL_DESCRIPTION', 'Rick on the road is a blog written by Rick Hurst about his experiences of working and living on the road');
 define('LOGIN_REQUIRED', false);
 define('LOGIN_URL', 'login');
 define('STORAGE_TYPE', 'ES_JSON');

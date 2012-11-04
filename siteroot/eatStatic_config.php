@@ -11,7 +11,7 @@ if (!defined('ROOT')) {
 }
 
 // data folder path (assumes admin_site and data folders on same level)
-define('DATA_ROOT', str_replace('siteroot','data', ROOT));
+define('DATA_ROOT', str_replace('siteroot','ontheroad_data', ROOT));
 
 // eatStatic library path (assumes admin_site and data folders on same level)
 define('EATSTATIC_ROOT', str_replace('siteroot','library/eatStatic', ROOT));

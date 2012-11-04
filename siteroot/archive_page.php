@@ -2,6 +2,8 @@
 
 require EATSTATIC_ROOT.'/eatStaticBlog.class.php';
 
+$show_prev_next = false;
+
 $blog = new eatStaticBlog;
 $posts = $blog->getArchiveList($slug);
 $page_title = BLOG_TITLE.' :: Archive '.$slug;

@@ -33,7 +33,7 @@ I currently handle drafts by composing in the draft folder and them moving into 
 There's plenty above to keep me going, but other things I have thought about are:-
 
 <ul>
-	<li>Full online admin for posting blog content, and updating text blocks, and basic page creation (without getting distracted by turning this into a CMS<li>
+	<li>Full online admin for posting blog content, and updating text blocks, and basic page creation (without getting distracted by turning this into a CMS</li>
 	<li>Improved Photoblogging/ gallery features</li>
 	<li>More travel blogging features, maybe containing GPS recording for each post/ photo and optionally-private maps</li>
 	<li>Non-techie friendly installation process</li>

@@ -34,7 +34,7 @@ if($production){
 define('NICE_DATE_FORMAT', 'D, d M Y');
 define('SKIN','ontheroad');
 define('BLOG_TITLE', 'Rick on the Road');
-define('BLOG_TAG_LINE', 'adventures of a wannabe nomadic web developer');
+define('BLOG_TAG_LINE', 'Adventures of a wannabe nomadic web developer');
 define('BLOG_AUTHOR', 'Rick Hurst');
 define('PAGE_EXT', '');
 define('SITE_ROOT','/'); // change this if you move the location of the site index.php e.g. '/blog/';

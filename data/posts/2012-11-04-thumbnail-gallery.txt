@@ -1,0 +1,6 @@
+Thumbnail Gallery added to example site
+
+To add a thumbnail gallery to a blog post, create a folder win the images folder with the same name as the blog post. By default this will give you thumbnails linking through to a larger version of the image. These can be used with lightbox, or similar plugin.
+
+--
+tags: documentation, project update

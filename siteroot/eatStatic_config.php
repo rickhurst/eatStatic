@@ -50,7 +50,7 @@ define('SNAPSHOT', false);
 
 define('WP_URLS', true); // use wordpress url scheme
 
-define('CACHE_ROOT', str_replace('example_site','data/cache', ROOT));
+define('CACHE_ROOT', str_replace('siteroot','data/cache', ROOT));
 
 // SQL fake filesystem settings
 define('SQL_FS', false);

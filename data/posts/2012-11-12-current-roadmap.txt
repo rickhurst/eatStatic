@@ -1,0 +1,45 @@
+Current Roadmap
+
+Here are my current plans for eatStatic blog software, in the order I hope to carry them out:-
+
+<h3>Improve Caching</h3>
+The option currently exists to cache arrays of all "all posts", "recent posts" and tags, to improve performance when the amount of posts grow. I've noticed some weaknesses in the way the caching is handled - currently json files are written and read directly on the filesystem. I haven't done much testing as to the efficiency of this, but I have noticed a bug on my <a href="http://www.rickhurst.co.uk">personal blog</a>, which has over 600 posts, where sometimes the cache refresh fails. I'm assuming that this is due to some read/write blocking. I never intended to invent my own database system, as this problem has already been solved, but ideally, I do want to keep this software as free from dependencies as possible, but not if that means creating an inferior product. I will be experimenting with switchable alternatives for the caching - memcache, mysql, sqlite, to make sure that it can scale and performance is maximised. This will still make use of json as a data format, but written to memory or into a db rather then the file system.
+
+<h3>Improve cache refreshing</h3>
+This currently involves calling a couple of URLs to run a couple of seperate scripts in the scripts directory, which is a bit clunky. I'd like to make this into a single URL and CLI command, so that it can be run more conveniently on demand and/or via cron. I'll also add some rudimentary security so that a user can specify a "secret" URL if they want to run it manually.
+
+<h3>Add a "main image" tag</h3>
+I want to add a tag to specify a main image to be added to the blog post, rather than adding an HTML tag. This paves the way to add a blog by email feature
+
+<h3>Blog by email</h3>
+In keeping with the emphasis on offline blogging, and travel blogging - by far the most convenient way to create a blog post with a featured image, is by sending an email with an attached image from a smartphone. I intend to create a system for picking up emails from a secret email address, probably via POP. The system will add a text file and image so the post can still be edited in the normal way.
+
+<h3>Beginnings of online admin</h3>
+This will become increasingly important once the blog by email feature is added, in case a blog post needs deleting or editing after mistaken or broken posting, but without access to FTP/SCP/SSH/GIT or however the data files are usually maintained. This will be added in order of necessity :- 
+<ul>
+<li>a login system (maybe oauth, to avoid storing encrypted passwords on the server?)</li>
+<li>Post list with delete and basic edit (i.e. to correct typos) options</li>
+</ul>
+
+I could get seriously sidetracked by building a full online admin, so i'm leaving this list here at the moment!
+
+<h3>Support of markdown and other formats</h3>
+I didn't bother with markdown support initially, as being a web developer i'm happy to write plain text with a few HTML tags where needed. Also the format proved handy when porting my personal blog from wordpress, which stored content in this format. However, I think there are a number of benefits for supporting markdown, so this is next on the list.
+
+<h3>Better draft/ live handling</h3>
+I currently handle drafts by composing in the draft folder and them moving into the main folder when ready, but previewing stuff is really clunky, so I want to devise a more convenient way to handle this, which also ties into the blog by email feature.
+
+<h3>Other stuff</h3>
+There's plenty above to keep me going, but other things I have thought about are:-
+
+<ul>
+	<li>Full online admin for posting blog content, and updating text blocks, and basic page creation (without getting distracted by turning this into a CMS</li>
+	<li>Improved Photoblogging/ gallery features</li>
+	<li>More travel blogging features, maybe containing GPS recording for each post/ photo and optionally-private maps</li>
+	<li>Non-techie friendly installation process</li>
+	<li>Invite only blogs - so people can keep private travel blogs for friends and family</li>
+	<li>Comment system</li>
+</ul>
+
+Some of the above ideas are replicating what you can already do with posterous and tumblr, but I still like to be able to run my own privately hosted sites, and especially to be able to take and modify software to integrate with other sites and systems.
+

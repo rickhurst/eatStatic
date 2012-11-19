@@ -259,6 +259,26 @@ class eatStaticBlog extends eatStatic {
         
         return $matches;
     }
+
+    /**
+     * @desc return no. of pages to use for pagination
+     */
+    public function getPaginated($cat='', $page_size=10){
+    	if ($cat == ''){
+    		
+    		$this->getPostFiles();
+
+    		$total = count($this->post_files);
+
+    		if($total > $page_size){
+    			$pages = ceil($total/$page_size);
+    		} else {
+    			$pages = 0;
+    		}
+
+    		return $pages;
+    	}
+    }
     
     	
 }

@@ -81,6 +81,18 @@ try {
 		 * home page
 		 */
 		case "":
+
+			require EATSTATIC_ROOT.'/eatStaticBlog.class.php';
+
+			$blog = new eatStaticBlog;
+			$posts = $blog->getRecentPosts();
+			$page_title = BLOG_TITLE.' :: '.BLOG_TAG_LINE;
+    		
+    		// set up paginator
+    		$paginator = new eatStaticPaginator;
+    		$paginator->total = count($blog->post_files);
+			
+
 			$stub = "blog_index.php";
 		break;
 		
@@ -92,6 +104,33 @@ try {
 			switch ($path[1]){
 
 				case "all":
+
+					switch ($path[2]){
+						case "";
+							// probably 404, as we never want to return all posts?
+						break;
+
+						default:
+
+							require EATSTATIC_ROOT.'/eatStaticBlog.class.php';
+
+							// return appropriate slice depending on specified page
+							$blog = new eatStaticBlog;
+							$posts = $blog->getSlicedPosts($path[2]-1);
+
+							$page_title = BLOG_TITLE.' :: '.BLOG_TAG_LINE;
+							$current_page = $path[2];
+
+							// set up paginator
+				    		//$blog->getPostFiles();
+				    		$paginator = new eatStaticPaginator;
+				    		$paginator->current = $path[2];
+				    		$paginator->total = sizeof($blog->post_files);
+
+							$stub = "blog_index.php";
+
+						break;
+					}
 
 				break;
 

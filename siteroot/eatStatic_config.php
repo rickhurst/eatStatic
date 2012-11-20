@@ -47,6 +47,7 @@ define('LOGIN_REQUIRED', false);
 define('LOGIN_URL', 'login');
 define('STORAGE_TYPE', 'ES_JSON');
 define('SNAPSHOT', false);
+define('POSTS_PER_PAGE', 10);
 
 define('WP_URLS', true); // use wordpress url scheme
 

@@ -89,6 +89,34 @@ class eatStaticBlog extends eatStatic {
 		return $posts;
 		
 	}
+
+	public function getSlicedPosts($page){
+		$this->getPostFiles();
+		$all_files = array_reverse($this->post_files);
+
+		//print_r($all_files);
+
+		$sliced = array_slice($all_files, (POSTS_PER_PAGE*$page), POSTS_PER_PAGE);
+
+		//echo (POSTS_PER_PAGE*$page);
+
+		//print_r($sliced);
+		//die();
+		foreach($sliced as $post_file){
+		
+			// for each post found
+			$post = new eatStaticBlogPost;
+			$post->data_file_path = $post_file;
+			$post->hydrate();
+			//$post_count++;
+			$posts[] = $post;
+		
+		}
+
+		return $posts;
+
+
+	}
 	
 	public function getDrafts(){
 		
@@ -259,28 +287,28 @@ class eatStaticBlog extends eatStatic {
         
         return $matches;
     }
+    	
+}
 
-    /**
-     * @desc return no. of pages to use for pagination
-     */
-    public function getPaginated($cat='', $page_size=10){
-    	if ($cat == ''){
-    		
-    		$this->getPostFiles();
+class eatStaticPaginator {
+	var $cat='';
+	var $page_size=POSTS_PER_PAGE;
+	var $current=1;
+	var $partial='skin/global/templates/paginator.php';
+	var $total = 0;
+	var $pages = 0;
 
-    		$total = count($this->post_files);
+	public function render(){
+		if ($this->cat == ''){
 
-    		if($total > $page_size){
-    			$pages = ceil($total/$page_size);
-    		} else {
-    			$pages = 0;
+    		if($this->total > $this->page_size){
+    			$this->pages = ceil($this->total/$this->page_size);
+
     		}
 
-    		return $pages;
+    		require ROOT."/".$this->partial;
     	}
-    }
-    
-    	
+	}
 }
 
 class eatStaticBlogPost extends eatStatic {

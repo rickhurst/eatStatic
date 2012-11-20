@@ -16,13 +16,9 @@ foreach($posts as $post){
 	require ROOT.'/skin/'.SKIN.'/templates/post_item.php';
 }
 
-echo '[';
-
 for($i=1; $i<=$pages; $i++){
-	echo $i. ' | ';
+	echo '<a href="'.SITE_ROOT.'posts/all">'.$i.'</a> ';
 }
-
-echo ']';
 
 require ROOT.'/skin/'.SKIN.'/templates/body_bottom.php';
 require ROOT.'/skin/'.SKIN.'/templates/page_bottom.php';

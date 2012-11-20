@@ -88,8 +88,19 @@ try {
 		 * blog post page
 		 */
 		case "posts":
-			$stub = "post.php";
-			$slug = str_replace(PAGE_EXT,"",$path[1]);
+
+			switch ($path[1]){
+
+				case "all":
+
+				break;
+
+				default:
+					$stub = "post.php";
+					$slug = str_replace(PAGE_EXT,"",$path[1]);
+				break;
+			}
+
 		break;
 		
 		/**

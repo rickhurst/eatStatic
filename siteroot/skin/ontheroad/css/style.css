@@ -61,6 +61,10 @@ body {
 	margin-bottom:10px;
 }
 
+.post .body img {
+    margin-bottom: 20px;
+}
+
 .prev-next {
 	margin-top:10px;
 }

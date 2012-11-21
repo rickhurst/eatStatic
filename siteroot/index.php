@@ -167,7 +167,15 @@ try {
 				break;
 				default:
 					$slug = str_replace(PAGE_EXT,"",$path[1]);
-					$stub = "category_page.php";
+					switch($path[2]){
+						case "":
+							$stub = "category_page.php";
+						break;
+						case "feed":
+							// category RSS
+							$stub = "category_rss.php";
+						break;
+					}
 				break;
 			}
 		break;

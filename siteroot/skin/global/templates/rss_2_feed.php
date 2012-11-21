@@ -10,7 +10,7 @@
 	<link><?php echo $feed->blog_link ?></link>
 	<description><?php echo $feed->blog_description ?></description>
 	<pubDate><?php echo $feed->pub_date; //last updated e.g. Tue, 01 Jun 2010 13:35:09 +0000 ?></pubDate>
-	<generator>http://www.rickhurst.co.uk/dropblog</generator>
+	<generator>http://eatstatic.olivewoodstudio.com</generator>
 	<language>en</language>
 	<?php
 	foreach($feed->items as $item){

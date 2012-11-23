@@ -357,7 +357,7 @@ class eatStaticBlogPost extends eatStatic {
 				// the body section can be the rest of the file,
 				// or you can mark the end of the body section with --
 				// you can then put meta data fields in the file 
-				if($parts[$i] == '--' && $meta == false){
+				if(eatStatic::stripLineBreaks($parts[$i]) == '--' && $meta == false){
 					$body = false;
 					$meta = true;
 				}
@@ -372,7 +372,7 @@ class eatStaticBlogPost extends eatStatic {
 				}
 				
 				// get meta info
-				if($meta && $parts[$i] != '--'){
+				if($meta && eatStatic::stripLineBreaks($parts[$i]) != '--'){
 					//die('meta:'.$parts[$i]);
 					if($parts[$i] != ''){
 						$this->handleMeta($parts[$i]);

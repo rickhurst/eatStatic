@@ -295,6 +295,14 @@ class eatStatic {
 	public function uri(){
 	    return $_SERVER['REQUEST_URI'];
 	}
+
+	public function stripLineBreaks($str){
+		if ($str != ''){
+			return str_replace(array("\r\n", "\n", "\r"), '',$str);
+		} else {
+			return '';
+		}
+	}
 	
 
 	

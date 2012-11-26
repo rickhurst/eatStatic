@@ -13,7 +13,7 @@
 class eatStaticBlog extends eatStatic {
 	
 	var $post_folder;
-	var $recent_limit = 10;
+	var $recent_limit = POSTS_PER_PAGE;
 	var $post_files = array();
 
 	function __construct() {
@@ -297,6 +297,7 @@ class eatStaticPaginator {
 	var $partial='skin/global/templates/paginator.php';
 	var $total = 0;
 	var $pages = 0;
+	var $pagination_root = '';
 
 	public function render(){
 		if ($this->cat == ''){

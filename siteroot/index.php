@@ -91,6 +91,7 @@ try {
     		// set up paginator
     		$paginator = new eatStaticPaginator;
     		$paginator->total = count($blog->post_files);
+    		$paginator->pagination_root = 'posts/all/';
 			
 
 			$stub = "blog_index.php";
@@ -126,6 +127,7 @@ try {
 				    		$paginator = new eatStaticPaginator;
 				    		$paginator->current = $path[2];
 				    		$paginator->total = sizeof($blog->post_files);
+				    		$paginator->pagination_root = 'posts/all/';
 
 							$stub = "blog_index.php";
 
@@ -167,8 +169,25 @@ try {
 				break;
 				default:
 					$slug = str_replace(PAGE_EXT,"",$path[1]);
+
 					switch($path[2]){
 						case "":
+							$show_prev_next = false;
+							require EATSTATIC_ROOT.'/eatStaticBlog.class.php';
+							require EATSTATIC_ROOT.'/eatStaticTag.class.php';
+							$tag = new eatStaticTag;
+							$tag->file_name = $slug.'.json'; // TODO: security validation of slug
+							$tag->loadFromFileName();
+							$page_title = BLOG_TITLE.' :: '.$tag->name;
+							$all_items = array_reverse($tag->items);
+
+							$items = array_slice($all_items, 0, POSTS_PER_PAGE);
+
+							$paginator = new eatStaticPaginator;
+				    		$paginator->current = $path[2];
+				    		$paginator->total = sizeof($all_items);
+				    		$paginator->pagination_root = 'category/'.$path[1].'/';
+
 							$stub = "category_page.php";
 						break;
 						case "feed":

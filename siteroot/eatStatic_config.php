@@ -11,13 +11,13 @@ if (!defined('ROOT')) {
 }
 
 // data folder path (assumes admin_site and data folders on same level)
-define('DATA_ROOT', str_replace('siteroot','ontheroad', ROOT));
+define('DATA_ROOT', str_replace('siteroot','data', ROOT));
 
 // eatStatic library path (assumes admin_site and data folders on same level)
 define('EATSTATIC_ROOT', str_replace('siteroot','library/eatStatic', ROOT));
 
 $production = false;
-if($_SERVER['HTTP_HOST'] == 'ontheroad.rickhurst.co.uk'){
+if($_SERVER['HTTP_HOST'] == 'eatstatic.olivewoodstudio.com'){
 	$production = true;
 }
 
@@ -32,17 +32,17 @@ if($production){
 }
 
 define('NICE_DATE_FORMAT', 'D, d M Y');
-define('SKIN','ontheroad');
-define('BLOG_TITLE', 'Rick on the Road');
-define('BLOG_TAG_LINE', 'Adventures of a wannabe nomadic web developer');
+define('SKIN','default');
+define('BLOG_TITLE', 'eatStatic');
+define('BLOG_TAG_LINE', 'a PHP5 text file based blog engine');
 define('BLOG_AUTHOR', 'Rick Hurst');
 define('PAGE_EXT', '');
 define('SITE_ROOT','/'); // change this if you move the location of the site index.php e.g. '/blog/';
 define('DISQUS_ENABLED', false);
 define('DISQUS_IDENTIFIER','');
 define('GOOGLE_ANALYTICS_ID','');
-define('GLOBAL_KEYWORDS', 'mobile working, camping, solar power, camper van');
-define('GLOBAL_DESCRIPTION', 'Rick on the road is a blog written by Rick Hurst about his experiences of working and living on the road');
+define('GLOBAL_KEYWORDS', 'eatStatic, text file blog engine, PHP5');
+define('GLOBAL_DESCRIPTION', 'eatStatic is a text file blog engine written in PHP5');
 define('LOGIN_REQUIRED', false);
 define('LOGIN_URL', 'login');
 define('STORAGE_TYPE', 'ES_JSON');

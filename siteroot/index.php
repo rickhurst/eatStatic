@@ -194,6 +194,33 @@ try {
 							// category RSS
 							$stub = "category_rss.php";
 						break;
+						default:
+
+							// if this is numeric, setup pagination and return appropriate page
+							if(is_numeric($path[2])){
+
+								$page = ($path[2] - 1);	
+
+								$show_prev_next = false;
+								require EATSTATIC_ROOT.'/eatStaticBlog.class.php';
+								require EATSTATIC_ROOT.'/eatStaticTag.class.php';
+								$tag = new eatStaticTag;
+								$tag->file_name = $slug.'.json'; // TODO: security validation of slug
+								$tag->loadFromFileName();
+								$page_title = BLOG_TITLE.' :: '.$tag->name;
+								$all_items = array_reverse($tag->items);
+
+								$items = array_slice($all_items, POSTS_PER_PAGE*$page, POSTS_PER_PAGE);
+
+								$paginator = new eatStaticPaginator;
+					    		$paginator->current = $path[2];
+					    		$paginator->total = sizeof($all_items);
+					    		$paginator->pagination_root = 'category/'.$path[1].'/';
+
+					    		$stub = "category_page.php";
+				    		}
+
+						break;
 					}
 				break;
 			}

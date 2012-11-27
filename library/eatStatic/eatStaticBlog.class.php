@@ -306,8 +306,9 @@ class eatStaticPaginator {
     			$this->pages = ceil($this->total/$this->page_size);
 
     		}
-
-    		require ROOT."/".$this->partial;
+    		if ($this->pages > 1 ){
+    			require ROOT."/".$this->partial;
+    		}
     	}
 	}
 }

@@ -81,3 +81,8 @@ body {
 	border: 1px solid #ccc;
 	padding:10px;
 }
+
+.navbar .brand {
+    padding-left:84px;
+    background: transparent url(/images/misc/rick_on_the_road_logo.png) 0 0 no-repeat;
+}

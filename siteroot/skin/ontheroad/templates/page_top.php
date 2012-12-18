@@ -17,7 +17,7 @@
 	<link rel="alternate" type="application/rss+xml" title="<?php echo BLOG_TITLE ?>" href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/feed/" />
 	<link type="text/css" rel="stylesheet" href="/skin/global/css/bootstrap.min.css" />
 	<link type="text/css" rel="stylesheet" href="/skin/<?php echo SKIN ?>/css/style.css" />
-	<link type="text/css" rel="stylesheet" href="/skin/global/css/bootstrap-responsive.min.css" />
+	<link type="text/css" rel="stylesheet" href="/skin/global/css/bootstrap-responsive.css" />
 	<link type="text/css" rel="stylesheet" href="/skin/global/css/jquery.lightbox-0.5.css" />
 	<script type="text/javascript" src="/skin/global/js/lib/jquery-1.7.2.js"></script>
 	<script type="text/javascript" src="/skin/global/js/lib/jquery.lightbox-0.5.js"></script>

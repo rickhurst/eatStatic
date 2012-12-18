@@ -19,6 +19,9 @@
 	<link type="text/css" rel="stylesheet" href="/skin/<?php echo SKIN ?>/css/style.css" />
 	<link type="text/css" rel="stylesheet" href="/skin/global/css/bootstrap-responsive.css" />
 	<link type="text/css" rel="stylesheet" href="/skin/global/css/jquery.lightbox-0.5.css" />
+	<link rel="icon" 
+      type="image/png" 
+      href="/skin/ontheroad/img/favicon.png" />
 	<script type="text/javascript" src="/skin/global/js/lib/jquery-1.7.2.js"></script>
 	<script type="text/javascript" src="/skin/global/js/lib/jquery.lightbox-0.5.js"></script>
 	<!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->

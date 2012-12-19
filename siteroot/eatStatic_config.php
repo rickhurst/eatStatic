@@ -51,7 +51,7 @@ define('POSTS_PER_PAGE', 10);
 
 define('WP_URLS', true); // use wordpress url scheme
 
-define('CACHE_ROOT', str_replace('siteroot','data/cache', ROOT));
+define('CACHE_ROOT', str_replace('siteroot','ontheroad/cache', ROOT));
 
 // SQL fake filesystem settings
 define('SQL_FS', false);

@@ -1,7 +1,7 @@
 	
 	<script type="text/javascript">
         
-        var disqus_shortname = 'ricksweblog';
+        var disqus_shortname = '<?php echo DISQUS_IDENTIFIER ?>';
 
         (function () {
             var s = document.createElement('script'); s.async = true;

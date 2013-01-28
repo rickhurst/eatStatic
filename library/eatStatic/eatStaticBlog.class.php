@@ -21,6 +21,9 @@ class eatStaticBlog extends eatStatic {
 	}
 	
 	public function getPostFiles(){
+
+		// reset post files array
+		$this->post_files = array();
 		
 		if(USE_CACHE){
 			// see if cache file exists

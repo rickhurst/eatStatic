@@ -30,7 +30,7 @@
 		jQuery(function($){
 			(function(window, $, PhotoSwipe){
 				$(document).ready(function(){
-					var options = {};
+					var options = {captionAndToolbarAutoHideDelay:0};
 					$("#gallery-<?php echo $post->slug ?> a").photoSwipe(options);
 				});
 			}(window, window.jQuery, window.Code.PhotoSwipe));

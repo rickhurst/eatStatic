@@ -31,6 +31,9 @@
 	<script type="text/javascript" src="/skin/global/js/lib/jquery.easing.min.js"></script>
 		
 	<script type="text/javascript" src="/skin/global/js/lib/supersized.3.2.7.min.js"></script>
+
+	<script type="text/javascript" src="/skin/global/js/lib/klass.min.js"></script>
+	<script type="text/javascript" src="/skin/global/js/lib/code.photoswipe.jquery-3.0.5.min.js"></script>
 	<script type="text/javascript">
 			
 			jQuery(function($){
@@ -38,7 +41,7 @@
 				$.supersized({
 				
 					// Functionality
-					slide_interval          :   10000,		// Length between transitions
+					slide_interval          :   7000,		// Length between transitions
 					transition              :   1, 			// 0-None, 1-Fade, 2-Slide Top, 3-Slide Right, 4-Slide Bottom, 5-Slide Left, 6-Carousel Right, 7-Carousel Left
 					transition_speed		:	2000,		// Speed of transition
 															   
@@ -54,6 +57,5 @@
 				});
 		    });
 		    
-		</script>
-
+	</script>
 </body>

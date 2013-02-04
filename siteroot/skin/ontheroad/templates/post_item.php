@@ -10,7 +10,7 @@
 	<?php
 	if(sizeof($post->gallery_items) > 0){
 	?>
-	<div class="gallery">
+	<div class="gallery" id="gallery-<?php echo $post->slug ?>">
 		<?php
 		foreach($post->gallery_items as $item){
 			?>
@@ -25,11 +25,18 @@
 		<div class="clear"><!-- --></div>
 		<?php //echo "here";print_r($gallery->captions); ?>
 	</div>
+
 	<script type="text/javascript">
-	$(function() {
-		$('.gallery a.lightbox-<?php echo $post->slug ?>').lightBox({fixedNavigation:true});
-	});
+		jQuery(function($){
+			(function(window, $, PhotoSwipe){
+				$(document).ready(function(){
+					var options = {};
+					$("#gallery-<?php echo $post->slug ?> a").photoSwipe(options);
+				});
+			}(window, window.jQuery, window.Code.PhotoSwipe));
+		});
 	</script>
+
 	<?php	
 	}
 	

@@ -1,9 +1,7 @@
 eatStatic
 ==========
 
-eatStatic is a text file driven blog engine which was originally put together to allow me to
-maintain a travel blog with limited internet connectivity - blog posts were written as simple text files in textmate/ emacs 
-and uploaded to the server when a connection was available.
+eatStatic is am open-source text file driven blog engine which was originally put together to allow me to maintain a travel blog with limited internet connectivity - blog posts were written as simple text files in textmate/ emacs and uploaded to the server when a connection was available.
 
 There is also a simple thumbnail gallery system to allow thumbnail galleries to appear in a post, and an image cache system to allow resized versions of uploaded images to be displayed (and cached).
 
@@ -22,7 +20,9 @@ The demo site acts a development blog, so if you are interested in updates, add 
 
 A slightly older version also powers my personal blog (with 600+ posts) here:-
 
-http://www.rickhurst.co.uk 
+http://www.rickhurst.co.uk
+
+The "latest" version powers [my Travel/ VW T25 camper blog](http://ontheroad.rickhurst.co.uk). This branch is used for testing new features which can be cherry picked/ merged back into master.
 
 The above blog has the data folder located in my Dropbox, so new posts are automatically synced to the live site.
 
@@ -40,4 +40,9 @@ Some other features I would like to add in the nearish future:-
 * image uploading and gallery management via web
 * prev' and 'next' on posts <- DONE
 * keyword search
-* category RSS feeds
+* category RSS feeds <- DONE
+
+License
+-------
+
+Open Source MIT (see MIT-license.txt)

@@ -13,6 +13,10 @@ $tags = eatStaticTag::getAll();
 require ROOT.'/skin/'.SKIN.'/templates/page_top.php';
 require ROOT.'/skin/'.SKIN.'/templates/body_top.php';
 
+?>
+<div class="post"> 
+<?php
+
 $last_year = '';
 
 foreach($items as $item){
@@ -49,7 +53,7 @@ foreach($tags as $tag){
 
 ?>
 </div> 
- 
+</div>
 <?php
 
 require ROOT.'/skin/'.SKIN.'/templates/body_bottom.php';

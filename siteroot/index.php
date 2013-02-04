@@ -81,6 +81,19 @@ try {
 		 * home page
 		 */
 		case "":
+
+			require EATSTATIC_ROOT.'/eatStaticBlog.class.php';
+
+			$blog = new eatStaticBlog;
+			$posts = $blog->getRecentPosts();
+			$page_title = BLOG_TITLE.' :: '.BLOG_TAG_LINE;
+    		
+    		// set up paginator
+    		$paginator = new eatStaticPaginator;
+    		$paginator->total = count($blog->post_files);
+    		$paginator->pagination_root = 'posts/all/';
+			
+
 			$stub = "blog_index.php";
 		break;
 		
@@ -88,8 +101,47 @@ try {
 		 * blog post page
 		 */
 		case "posts":
-			$stub = "post.php";
-			$slug = str_replace(PAGE_EXT,"",$path[1]);
+
+			switch ($path[1]){
+
+				case "all":
+
+					switch ($path[2]){
+						case "";
+							// probably 404, as we never want to return all posts?
+						break;
+
+						default:
+
+							require EATSTATIC_ROOT.'/eatStaticBlog.class.php';
+
+							// return appropriate slice depending on specified page
+							$blog = new eatStaticBlog;
+							$posts = $blog->getSlicedPosts($path[2]-1);
+
+							$page_title = BLOG_TITLE.' :: '.BLOG_TAG_LINE;
+							$current_page = $path[2];
+
+							// set up paginator
+				    		//$blog->getPostFiles();
+				    		$paginator = new eatStaticPaginator;
+				    		$paginator->current = $path[2];
+				    		$paginator->total = sizeof($blog->post_files);
+				    		$paginator->pagination_root = 'posts/all/';
+
+							$stub = "blog_index.php";
+
+						break;
+					}
+
+				break;
+
+				default:
+					$stub = "post.php";
+					$slug = str_replace(PAGE_EXT,"",$path[1]);
+				break;
+			}
+
 		break;
 		
 		/**
@@ -117,7 +169,59 @@ try {
 				break;
 				default:
 					$slug = str_replace(PAGE_EXT,"",$path[1]);
-					$stub = "category_page.php";
+
+					switch($path[2]){
+						case "":
+							$show_prev_next = false;
+							require EATSTATIC_ROOT.'/eatStaticBlog.class.php';
+							require EATSTATIC_ROOT.'/eatStaticTag.class.php';
+							$tag = new eatStaticTag;
+							$tag->file_name = $slug.'.json'; // TODO: security validation of slug
+							$tag->loadFromFileName();
+							$page_title = BLOG_TITLE.' :: '.$tag->name;
+							$all_items = array_reverse($tag->items);
+
+							$items = array_slice($all_items, 0, POSTS_PER_PAGE);
+
+							$paginator = new eatStaticPaginator;
+				    		$paginator->current = $path[2];
+				    		$paginator->total = sizeof($all_items);
+				    		$paginator->pagination_root = 'category/'.$path[1].'/';
+
+							$stub = "category_page.php";
+						break;
+						case "feed":
+							// category RSS
+							$stub = "category_rss.php";
+						break;
+						default:
+
+							// if this is numeric, setup pagination and return appropriate page
+							if(is_numeric($path[2])){
+
+								$page = ($path[2] - 1);	
+
+								$show_prev_next = false;
+								require EATSTATIC_ROOT.'/eatStaticBlog.class.php';
+								require EATSTATIC_ROOT.'/eatStaticTag.class.php';
+								$tag = new eatStaticTag;
+								$tag->file_name = $slug.'.json'; // TODO: security validation of slug
+								$tag->loadFromFileName();
+								$page_title = BLOG_TITLE.' :: '.$tag->name;
+								$all_items = array_reverse($tag->items);
+
+								$items = array_slice($all_items, POSTS_PER_PAGE*$page, POSTS_PER_PAGE);
+
+								$paginator = new eatStaticPaginator;
+					    		$paginator->current = $path[2];
+					    		$paginator->total = sizeof($all_items);
+					    		$paginator->pagination_root = 'category/'.$path[1].'/';
+
+					    		$stub = "category_page.php";
+				    		}
+
+						break;
+					}
 				break;
 			}
 		break;

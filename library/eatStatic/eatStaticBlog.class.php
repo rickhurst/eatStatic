@@ -13,7 +13,7 @@
 class eatStaticBlog extends eatStatic {
 	
 	var $post_folder;
-	var $recent_limit = 10;
+	var $recent_limit = POSTS_PER_PAGE;
 	var $post_files = array();
 
 	function __construct() {
@@ -88,6 +88,34 @@ class eatStaticBlog extends eatStatic {
 
 		return $posts;
 		
+	}
+
+	public function getSlicedPosts($page){
+		$this->getPostFiles();
+		$all_files = array_reverse($this->post_files);
+
+		//print_r($all_files);
+
+		$sliced = array_slice($all_files, (POSTS_PER_PAGE*$page), POSTS_PER_PAGE);
+
+		//echo (POSTS_PER_PAGE*$page);
+
+		//print_r($sliced);
+		//die();
+		foreach($sliced as $post_file){
+		
+			// for each post found
+			$post = new eatStaticBlogPost;
+			$post->data_file_path = $post_file;
+			$post->hydrate();
+			//$post_count++;
+			$posts[] = $post;
+		
+		}
+
+		return $posts;
+
+
 	}
 	
 	public function getDrafts(){
@@ -259,8 +287,30 @@ class eatStaticBlog extends eatStatic {
         
         return $matches;
     }
-    
     	
+}
+
+class eatStaticPaginator {
+	var $cat='';
+	var $page_size=POSTS_PER_PAGE;
+	var $current=1;
+	var $partial='skin/global/templates/paginator.php';
+	var $total = 0;
+	var $pages = 0;
+	var $pagination_root = '';
+
+	public function render(){
+		if ($this->cat == ''){
+
+    		if($this->total > $this->page_size){
+    			$this->pages = ceil($this->total/$this->page_size);
+
+    		}
+    		if ($this->pages > 1 ){
+    			require ROOT."/".$this->partial;
+    		}
+    	}
+	}
 }
 
 class eatStaticBlogPost extends eatStatic {
@@ -309,7 +359,7 @@ class eatStaticBlogPost extends eatStatic {
 				// the body section can be the rest of the file,
 				// or you can mark the end of the body section with --
 				// you can then put meta data fields in the file 
-				if($parts[$i] == '--' && $meta == false){
+				if(eatStatic::stripLineBreaks($parts[$i]) == '--' && $meta == false){
 					$body = false;
 					$meta = true;
 				}
@@ -324,7 +374,7 @@ class eatStaticBlogPost extends eatStatic {
 				}
 				
 				// get meta info
-				if($meta && $parts[$i] != '--'){
+				if($meta && eatStatic::stripLineBreaks($parts[$i]) != '--'){
 					//die('meta:'.$parts[$i]);
 					if($parts[$i] != ''){
 						$this->handleMeta($parts[$i]);

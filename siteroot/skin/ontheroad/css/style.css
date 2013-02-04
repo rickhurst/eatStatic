@@ -101,6 +101,19 @@ body {
 
 footer {
     padding:10px;
+    color: #fff;
+}
+
+.pagination .active a {
+    background-color: rgb(121, 114, 114);
+    color: #fff;
+}
+
+.well {
+    background: transparent url(../img/bg-texture.jpg);
+    border-radius: 0 !important; /* sue me! */
+    -webkit-border-radius: 0 !important;
+    -moz-border-radius: 0 !important;
 }
 
 /*

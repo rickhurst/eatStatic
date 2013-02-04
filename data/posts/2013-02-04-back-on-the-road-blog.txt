@@ -1,0 +1,7 @@
+Rick on the road blog back on the road
+
+This software was originally written for my "on the road" travel blog, which I later took offline and incorporated the content into my main blog. I've now reversed that and reinstated <a href="http://ontheroad.rickhurst.co.uk">On the road</a> (largely due to the recent purchase of another <a href="http://ontheroad.rickhurst.co.uk/2013/01/06/vw-t25-campervan/">VW T25 campervan</a>, which I hope to be the catalyst for some more travel blogging!).
+
+There are currently a few enhancements in the backontheroad branch that drives the travel blog that haven't been merged back into master - for example the pagination. I'm also planning on replacing lightbox used for the gallery with something responsive so that they work better on mobile.
+--
+tags:project update

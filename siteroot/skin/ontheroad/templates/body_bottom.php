@@ -39,7 +39,7 @@
 			jQuery(function($){
 
 				pageWidth = $(window).width();
-				if(pageWidth > 480){
+				if(pageWidth > 640){
 					$.supersized({
 					
 						// Functionality

@@ -15,10 +15,7 @@
 	<meta name="description" content="<?php echo $meta_description ?>" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0" /> 
 	<link rel="alternate" type="application/rss+xml" title="<?php echo BLOG_TITLE ?>" href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/feed/" />
-	<link type="text/css" rel="stylesheet" href="/skin/global/css/bootstrap.min.css" />
-	<link type="text/css" rel="stylesheet" href="/skin/<?php echo SKIN ?>/css/style.css" />
-	<link type="text/css" rel="stylesheet" href="/skin/global/css/bootstrap-responsive.css" />
-	<link type="text/css" rel="stylesheet" href="/skin/global/css/photoswipe.css" />
+	<link type="text/css" rel="stylesheet" href="/min/?g=css" />
 	<link rel="icon" 
       type="image/png" 
       href="/skin/ontheroad/img/favicon.png" />

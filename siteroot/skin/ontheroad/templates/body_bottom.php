@@ -29,9 +29,13 @@
 	?>
 	<script type="text/javascript">
 	var galleries = Array();
-	<?php foreach($blog->gallery_ids as $gallery_id){ ?>
+	<?php 
+	if(isset($blog)){
+		foreach($blog->gallery_ids as $gallery_id){ ?>
 	galleries.push('<?php echo $gallery_id ?>');
-	<?php } ?>
+	<?php
+		}
+	} ?>
 	</script>
 	<script src="/min/?g=js"></script>
 

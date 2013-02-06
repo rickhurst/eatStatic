@@ -15,6 +15,7 @@ class eatStaticBlog extends eatStatic {
 	var $post_folder;
 	var $recent_limit = POSTS_PER_PAGE;
 	var $post_files = array();
+	var $gallery_ids = array();
 
 	function __construct() {
 		$this->post_folder = DATA_ROOT.'/posts/';

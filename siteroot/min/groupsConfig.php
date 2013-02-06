@@ -19,7 +19,7 @@ return array(
     			'//skin/global/js/lib/klass.min.js', 
     			'//skin/global/js/lib/code.photoswipe.jquery-3.0.5.min.js',
     			'//skin/ontheroad/js/ontheroad.js'),
-    'css' => array('//skin/global/css/bootstrap.min.css', 
+    'css' => array('//skin/global/css/bootstrap.css', 
     				'//skin/ontheroad/css/style.css', 
     				'//skin/global/css/bootstrap-responsive.css', 
     				'//skin/global/css/photoswipe.css')

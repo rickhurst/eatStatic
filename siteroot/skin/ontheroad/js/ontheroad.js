@@ -23,6 +23,17 @@ jQuery(function($){
 	}
 });
 
+jQuery(function($){
+	(function(window, $, PhotoSwipe){
+		$(document).ready(function(){
+			var options = {captionAndToolbarAutoHideDelay:0};
+			for(var i = 0; i < galleries.length; i++){
+				$(galleries[i]).photoSwipe(options);
+			}
+		});
+	}(window, window.jQuery, window.Code.PhotoSwipe));
+});
+
 /* init disqus */
 var disqus_shortname = 'rickontheroad2';
 

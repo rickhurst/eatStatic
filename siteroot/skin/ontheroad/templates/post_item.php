@@ -26,16 +26,10 @@
 		<?php //echo "here";print_r($gallery->captions); ?>
 	</div>
 
-	<script type="text/javascript">
-		jQuery(function($){
-			(function(window, $, PhotoSwipe){
-				$(document).ready(function(){
-					var options = {captionAndToolbarAutoHideDelay:0};
-					$("#gallery-<?php echo $post->slug ?> a").photoSwipe(options);
-				});
-			}(window, window.jQuery, window.Code.PhotoSwipe));
-		});
-	</script>
+	<?php 
+	// TODO move this into blog class logic somewhere..
+	$blog->gallery_ids[] = '#gallery-'.$post->slug.' a';
+	?>
 
 	<?php	
 	}

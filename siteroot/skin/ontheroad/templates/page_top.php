@@ -19,7 +19,6 @@
 	<link rel="icon" 
       type="image/png" 
       href="/skin/ontheroad/img/favicon.png" />
-	<script type="text/javascript" src="/skin/global/js/lib/jquery-1.7.2.js"></script>
 	
 	<!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>

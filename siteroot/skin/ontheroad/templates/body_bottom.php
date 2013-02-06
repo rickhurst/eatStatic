@@ -27,6 +27,12 @@
 	// 	require ROOT.'/skin/global/templates/disqus_js_embed.php';
 	// }
 	?>
+	<script type="text/javascript">
+	var galleries = Array();
+	<?php foreach($blog->gallery_ids as $gallery_id){ ?>
+	galleries.push('<?php echo $gallery_id ?>');
+	<?php } ?>
+	</script>
 	<script src="/min/?g=js"></script>
 
 </body>

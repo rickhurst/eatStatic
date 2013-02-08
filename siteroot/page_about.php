@@ -8,7 +8,7 @@ require ROOT.'/skin/'.SKIN.'/templates/body_top.php';
 
 ?>
 <div class="post">
-	<h2>About Rick on the Road</h2>
+	<h2>About Camper Van Things blog</h2>
 
 	<p><img src="/images/misc/campsite_working_wide_700.png" alt="working from a campsite in france" /></p>
 

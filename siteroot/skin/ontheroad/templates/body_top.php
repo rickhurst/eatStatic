@@ -22,5 +22,10 @@
 	    </div>
 
 		<div class="container">
+				<?php if($path[0] == ""){ ?>
+				<header>
+				<h1><?php echo BLOG_TITLE ?></h1>
+				</header>
+				<?php } ?>
 			    <div class="row-fluid">
     				<div class="span8">

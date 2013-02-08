@@ -16,6 +16,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0" /> 
 	<link rel="alternate" type="application/rss+xml" title="<?php echo BLOG_TITLE ?>" href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/feed/" />
 	<link type="text/css" rel="stylesheet" href="/min/?g=css" />
+	<link href='http://fonts.googleapis.com/css?family=Satisfy' rel='stylesheet' type='text/css'>
 	<link rel="icon" 
       type="image/png" 
       href="/skin/ontheroad/img/favicon.png" />

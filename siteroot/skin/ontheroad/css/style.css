@@ -39,6 +39,19 @@ body {
 	padding-bottom: 40px;
 }
 
+header h1 {
+    font-family: 'Satisfy', cursive;
+    color: #fff;
+    font-size: 90px;
+    -webkit-text-shadow: 4px 4px 5px rgba(50, 50, 50, 0.75);
+    -moz-text-shadow:    4px 4px 5px rgba(50, 50, 50, 0.75);
+    text-shadow:         4px 4px 5px rgba(50, 50, 50, 0.75);
+    display: block;
+    line-height: 120px;
+    margin-left:20px;
+    margin-top:-20px;
+}
+
 .post {
     padding-bottom:20px;
     margin-bottom:20px;
@@ -91,8 +104,14 @@ body {
 }
 
 .navbar .brand {
-    padding-left:70px;
-    background: transparent url(../img/rick_on_the_road_logo.png) 0 4px no-repeat;
+    font-family: 'Satisfy', cursive;
+    color: #fff;
+    padding-left:37px;
+    line-height: 20px;
+}
+
+.navbar-inner {
+    background: transparent url(../img/bg-black.png);
 }
 
 .pagination ul, footer {
@@ -114,6 +133,19 @@ footer {
     border-radius: 0 !important; /* sue me! */
     -webkit-border-radius: 0 !important;
     -moz-border-radius: 0 !important;
+}
+
+.well h2 {
+    font-size:20px;
+    margin-top: -10px;
+    margin-bottom:10px;
+}
+
+@media only screen and (max-width: 480px) {
+    header h1 {
+        font-size: 40px;
+        line-height: 70px;
+    }  
 }
 
 /*

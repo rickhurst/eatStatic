@@ -34,15 +34,15 @@ if($production){
 define('NICE_DATE_FORMAT', 'D, d M Y');
 define('SKIN','ontheroad');
 define('BLOG_TITLE', 'Camper Van Things');
-define('BLOG_TAG_LINE', 'Blog about mobile working and Rocky the VW T25 camper van');
+define('BLOG_TAG_LINE', 'Blog about mobile working and Rocky the VW T25 (T3/Vanagon) camper van');
 define('BLOG_AUTHOR', 'Rick Hurst');
 define('PAGE_EXT', '');
 define('SITE_ROOT','/'); // change this if you move the location of the site index.php e.g. '/blog/';
 define('DISQUS_ENABLED', true);
 define('DISQUS_IDENTIFIER','rickontheroad2');
 define('GOOGLE_ANALYTICS_ID','UA-562825-12');
-define('GLOBAL_KEYWORDS', 'mobile working, camping, solar power, camper van, T25, T25 camper, VW');
-define('GLOBAL_DESCRIPTION', 'Camper van things is a blog written by Rick Hurst about his experiences of mobile working, camping and his VW T25 campervan');
+define('GLOBAL_KEYWORDS', 'mobile working, camping, solar power, camper van, T25, T25 camper, VW, T3, Vanagon');
+define('GLOBAL_DESCRIPTION', 'Camper van things is a blog written by Rick Hurst about his experiences of mobile working, camping and his VW T25 (T3/Vanagon) campervan');
 define('LOGIN_REQUIRED', false);
 define('LOGIN_URL', 'login');
 define('STORAGE_TYPE', 'ES_JSON');

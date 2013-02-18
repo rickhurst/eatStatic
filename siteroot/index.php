@@ -242,6 +242,12 @@ try {
 			$stub = "rss.php";
 		break;
 
+		/**
+		 * Admin
+		 */
+		//case "admin":
+		//	new eatStaticAdminController($path);
+		//break;
 		
 		/**
 		 * if we haven't found a match yet, try against simple page engine

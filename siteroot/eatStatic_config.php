@@ -48,6 +48,7 @@ define('LOGIN_URL', 'login');
 define('STORAGE_TYPE', 'ES_JSON');
 define('SNAPSHOT', false);
 define('POSTS_PER_PAGE', 10);
+define('ADMIN_ENABLED', true);
 
 define('WP_URLS', true); // use wordpress url scheme
 
@@ -66,7 +67,10 @@ if('SQL_FS'){
 }
 
 //$login_exceptions = array('login','logged-out');
-
+if(ADMIN_ENABLED){
+//    require 'eatStatic_admin_local_settings.php';
+//    require_once(EATSTATIC_ROOT."/eatStaticAdminController.class.php");
+}
 
 
 // create an error object to store error messages

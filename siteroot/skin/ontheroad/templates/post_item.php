@@ -2,7 +2,7 @@
 	<a href="<?php echo $post->uri ?>" class="link"><h2><?php echo $post->title ?></h2></a>
 	
 	<div class="ago">
-	This post was written <?php echo eatStaticBlog::time_elapsed_string($post->timestamp);?> ago.
+	This post was written <?php echo eatStaticBlog::time_elapsed_string($post->timestamp);?> ago, by <?php echo $post->author ?>.
 	</div>
 	
 	<div class="date"><?php echo $post->nice_date ?></div>

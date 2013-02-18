@@ -464,6 +464,9 @@ class eatStaticBlogPost extends eatStatic {
 			case "description":
 				$this->description = $value;
 			break;
+			case "author":
+				$this->author = $value;
+			break;
 		}
 	}
 	

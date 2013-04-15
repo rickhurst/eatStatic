@@ -243,11 +243,18 @@ try {
 		break;
 
 		/**
-		 * Admin
+		 * Admin and API handled by eatStaticAdminController
 		 */
-		//case "admin":
-		//	new eatStaticAdminController($path);
-		//break;
+		case "admin":
+			if(ADMIN_ENABLED){
+				new eatStaticAdminController($path);
+			}
+		break;
+		case "api":
+			if(ADMIN_ENABLED){
+				new eatStaticAdminController($path);
+			}
+		break;
 		
 		/**
 		 * if we haven't found a match yet, try against simple page engine

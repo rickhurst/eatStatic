@@ -21,12 +21,12 @@ class eatStaticBlog extends eatStatic {
 		$this->post_folder = DATA_ROOT.'/posts/';
 	}
 	
-	public function getPostFiles(){
+	public function getPostFiles($use_cache=USE_CACHE){
 
 		// reset post files array
 		$this->post_files = array();
 		
-		if(USE_CACHE){
+		if($use_cache){
 			// see if cache file exists
 			if(file_exists(CACHE_ROOT.'/all_posts.json')){
 				$this->post_files = json_decode(eatStatic::read_file(CACHE_ROOT.'/all_posts.json'));
@@ -202,6 +202,30 @@ class eatStaticBlog extends eatStatic {
 				$posts[] = $post;
 			}
 		}
+		return $posts;
+	}
+
+	/**
+	 * @desc return list of posts: slug, date, title 
+	 * 	     as this is for admin only, always return uncached
+	 */
+	public function getPostList(){
+		$this->getPostFiles();
+		$all_files = array_reverse($this->post_files);
+		foreach($all_files as $post_file){
+			// for each post found
+			$post = new eatStaticBlogPost;
+			$post->data_file_path = $post_file;
+			$post->hydrate();
+
+			$item = array();
+			$item['slug'] = $post->slug;
+			$item['date'] = $post->date;
+			$item['title'] = $post->date;
+			//$post_count++;
+			$posts[] = $item;
+		}
+
 		return $posts;
 	}
 	

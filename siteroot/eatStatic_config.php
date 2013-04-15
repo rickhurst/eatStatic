@@ -38,7 +38,7 @@ define('BLOG_TAG_LINE', 'Blog about mobile working and Rocky the VW T25 (T3/Vana
 define('BLOG_AUTHOR', 'Rick Hurst');
 define('PAGE_EXT', '');
 define('SITE_ROOT','/'); // change this if you move the location of the site index.php e.g. '/blog/';
-define('DISQUS_ENABLED', true);
+define('DISQUS_ENABLED', false);
 define('DISQUS_IDENTIFIER','rickontheroad2');
 define('GOOGLE_ANALYTICS_ID','UA-562825-12');
 define('GLOBAL_KEYWORDS', 'mobile working, camping, solar power, camper van, T25, T25 camper, VW, T3, Vanagon');
@@ -48,7 +48,7 @@ define('LOGIN_URL', 'login');
 define('STORAGE_TYPE', 'ES_JSON');
 define('SNAPSHOT', false);
 define('POSTS_PER_PAGE', 10);
-define('ADMIN_ENABLED', true);
+define('ADMIN_ENABLED', false);
 
 define('WP_URLS', true); // use wordpress url scheme
 
@@ -68,8 +68,8 @@ if('SQL_FS'){
 
 //$login_exceptions = array('login','logged-out');
 if(ADMIN_ENABLED){
-//    require 'eatStatic_admin_local_settings.php';
-//    require_once(EATSTATIC_ROOT."/eatStaticAdminController.class.php");
+    require 'eatStatic_admin_local_settings.php';
+    require_once(EATSTATIC_ROOT."/eatStaticAdminController.class.php");
 }
 
 

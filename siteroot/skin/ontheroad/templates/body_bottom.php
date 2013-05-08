@@ -20,7 +20,7 @@
 				<footer>
 			
 					<?php echo eatStatic::block("footer"); ?>
-				
+					<div class="fb-like" data-href="https://www.facebook.com/campervanthings" data-send="false" data-layout="button_count" data-width="450" data-show-faces="false"></div>
 				</footer>
 				
 		</div><!-- container -->

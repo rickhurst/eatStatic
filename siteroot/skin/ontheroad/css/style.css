@@ -81,6 +81,10 @@ header h1 {
     margin-bottom: 20px;
 }
 
+.post .body li {
+    margin-bottom:10px;
+}
+
 #disqus_thread {
     background: #fff;
     padding:20px;

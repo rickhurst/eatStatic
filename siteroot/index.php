@@ -274,6 +274,15 @@ try {
 			 * [TODO]: here is where we could redirect to EatStaticCMS engine 
 			 * looking for matching folder paths
 			 */
+			if($stub == ''){
+				require_once(EATSTATIC_ROOT."/eatStaticTree.class.php");
+				$tree = new eatStaticTree(DATA_ROOT.'/pages/');
+				$page = $tree->getPage(trim($url,"/"));
+
+				if(is_object($page)){
+					$stub = 'base_page.php';
+				}
+			}
 
 		break;
 	}		

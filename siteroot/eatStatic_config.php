@@ -18,9 +18,15 @@ define('EATSTATIC_ROOT', str_replace('siteroot','library/eatStatic', ROOT));
 
 define('LIB_ROOT', str_replace('siteroot','library', ROOT));
 
-$production = false;
-if($_SERVER['HTTP_HOST'] == 'ontheroad.rickhurst.co.uk' || $_SERVER['HTTP_HOST'] == 'campervanthings.com'){
-	$production = true;
+$production = true;
+
+$local_hosts = Array(
+    'rick.ontheroad.macbook.local',
+    'localhost'
+);
+
+if(in_array($_SERVER['HTTP_HOST'], $local_hosts)){
+	$production = false;
 }
 
 require_once(EATSTATIC_ROOT."/eatStatic.class.php");
@@ -58,7 +64,7 @@ define('CACHE_ROOT', str_replace('siteroot','ontheroad/cache', ROOT));
 
 // SQL fake filesystem settings
 define('SQL_FS', false);
-if('SQL_FS'){
+if(SQL_FS){
     define('DB_SERVER', 'localhost');
     define('DB_USERNAME', '');
     define('DB_PASSWORD', '');

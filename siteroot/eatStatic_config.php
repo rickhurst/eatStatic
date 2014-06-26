@@ -16,6 +16,8 @@ define('DATA_ROOT', str_replace('siteroot','ontheroad', ROOT));
 // eatStatic library path (assumes admin_site and data folders on same level)
 define('EATSTATIC_ROOT', str_replace('siteroot','library/eatStatic', ROOT));
 
+define('LIB_ROOT', str_replace('siteroot','library', ROOT));
+
 $production = false;
 if($_SERVER['HTTP_HOST'] == 'ontheroad.rickhurst.co.uk' || $_SERVER['HTTP_HOST'] == 'campervanthings.com'){
 	$production = true;

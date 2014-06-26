@@ -50,7 +50,7 @@ class eatStaticBlog extends eatStatic {
 		            //echo "filename: $file : filetype: " . filetype($this->post_folder . $file) . "\n";
 					if(
 						(filetype($this->post_folder . $file) == 'file') && 
-						(substr($file,-3) == "txt")
+						(substr($file,-3) == "txt" || substr($file,-2) == "md")
 					){
 						// for each post found
 						$this->post_files[] = $this->post_folder . $file;
@@ -359,6 +359,7 @@ class eatStaticBlogPost extends eatStatic {
 	var $uri;
 	var $next_url = '';
 	var $prev_url = '';
+	var $source_format = 'text';
 	
 	function hydrate(){
 		
@@ -366,6 +367,16 @@ class eatStaticBlogPost extends eatStatic {
 		if($this->raw_data == ''){
 			// no post content found
 		}
+
+		$ext = $this->getExtension($this->data_file_path);
+
+
+
+		if($ext == 'md'){
+			$this->source_format = 'markdown';
+			require_once(LIB_ROOT."/php-markdown/Markdown.inc.php");
+		}
+
 		$parts =  explode("\n", $this->raw_data);
 		
 		$str = '';
@@ -376,6 +387,7 @@ class eatStaticBlogPost extends eatStatic {
 		
 		$body = true;
 		$meta = false;
+		$raw_body = '';
 		
 		// the rest is body
 		for($i=1; $i<sizeof($parts); $i++){
@@ -393,11 +405,16 @@ class eatStaticBlogPost extends eatStatic {
 				}
 				
 				if($body){
-					// formatted body - line breaks need to be replaced with br, but not between html elements
-					if(substr($parts[$i],-1) != '>'){
-						$format_str = $format_str.$parts[$i]."<br />\n";
-					} else {
-						$format_str = $format_str.$parts[$i]."\n";
+
+					$raw_body = $raw_body.$parts[$i]."\n";
+
+					// formatted body - for text format, line breaks need to be replaced with br, but not between html elements
+					if($this->source_format == 'text'){
+						if(substr($parts[$i],-1) != '>'){
+							$format_str = $format_str.$parts[$i]."<br />\n";
+						} else {
+							$format_str = $format_str.$parts[$i]."\n";
+						}
 					}
 				}
 				
@@ -412,12 +429,28 @@ class eatStaticBlogPost extends eatStatic {
 			}
 			
 		}
+
+		if($this->source_format == 'markdown'){
+			// remove hashes from title
+			$this->title = str_replace('#', '', $this->title);
+
+			// parse the markdown into HTML
+			$this->formatted_body = Michelf\Markdown::defaultTransform($raw_body);
+
+		} else {
+			$this->formatted_body = $format_str;
+		}
+
+
 		
 		$this->body = $str;
-		$this->formatted_body = $format_str;
 		
 		$this->file_name = basename($this->data_file_path);
-		$this->slug = str_replace('.txt','',$this->file_name);
+		if($this->source_format == 'markdown'){
+			$this->slug = str_replace('.md','',$this->file_name);
+		} else {
+			$this->slug = str_replace('.txt','',$this->file_name);
+		} 
 		$this->date = substr($this->file_name, 0, 10);
 		$this->nice_date = date(NICE_DATE_FORMAT, strtotime($this->date));
 		$this->timestamp = strtotime($this->date);

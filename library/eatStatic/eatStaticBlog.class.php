@@ -360,6 +360,7 @@ class eatStaticBlogPost extends eatStatic {
 	var $next_url = '';
 	var $prev_url = '';
 	var $source_format = 'text';
+	var $fields = array(); // store custom meta fields
 	
 	function hydrate(){
 		
@@ -524,6 +525,15 @@ class eatStaticBlogPost extends eatStatic {
 			case "author":
 				$this->author = $value;
 			break;
+			default:
+				$this->fields[$key] = $value;
+			break;
+		}
+	}
+
+	function getField($key){
+		if(isset($this->fields[$key])){
+			return $this->fields[$key];
 		}
 	}
 	

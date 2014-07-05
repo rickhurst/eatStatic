@@ -44,6 +44,8 @@ class eatStaticTree extends eatStatic {
 		if(file_exists($this->root.$sub_path.".md")){
 			$raw_content = $this->read_file($this->root.$sub_path.".md");
 			$ext = "md";
+		} else {
+			return;
 		}
 
 		switch($ext){

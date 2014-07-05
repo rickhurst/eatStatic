@@ -303,6 +303,27 @@ class eatStatic {
 			return '';
 		}
 	}
+
+	/**
+	 * @desc check for custom version of specified template in root of
+	 * skin or module
+	 * or use version from eatStatic/modules/core/templates
+	 */
+	function template($template, $module='core'){
+		global $production, $post, $path, $show_prev_next, $blog;
+		$custom = false;
+		if(file_exists(ROOT."/skin/".SKIN.'/templates/'.$template)){
+			require(ROOT."/skin/".SKIN.'/templates/'.$template);
+			$custom = true;
+		} 
+		if(file_exists(ROOT."/skin/".SKIN.'/modules/'.$module.'/templates/'.$template)){
+			require(ROOT."/skin/".SKIN.'/modules/'.$module.'/templates/'.$template);
+			$custom = true;
+		} 
+		if(!$custom){
+			require EATSTATIC_ROOT.'/modules/'.$module.'/templates/'.$template;
+		}
+	}
 	
 
 	

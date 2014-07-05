@@ -2,7 +2,7 @@
 # unless it is a file or directory
 <IfModule mod_rewrite.c>
 
-Redirect /2014/05/23/vw-t3-1z-tdi-conversion/ /2014/05/23/vw-t25-1z-tdi-conversion/
+Redirect /2014/05/23/vw-T3-1z-tdi-conversion/ /2014/05/23/vw-t25-1z-tdi-conversion/
 
 RewriteEngine On
 RewriteBase /

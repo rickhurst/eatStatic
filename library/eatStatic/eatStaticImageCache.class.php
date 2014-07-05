@@ -95,7 +95,7 @@ class eatStaticImageCache  extends eatStatic {
 			// and rotate if necessary
 			//http://stackoverflow.com/questions/3657023/how-to-detect-shot-angle-of-photo-and-auto-rotate-for-website-display-like-deskt
 
-		
+			//die($this->source_path);
 		    // create a new image using GD functions
 			if(!file_exists($this->source_path)){
 				// try looking for the same file with an uppercase extension

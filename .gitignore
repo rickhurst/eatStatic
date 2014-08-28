@@ -4,3 +4,4 @@ data/cache
 data/cache/*
 siteroot/images/*
 ontheroad_data/*
+local_settings.php

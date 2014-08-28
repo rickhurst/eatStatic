@@ -9,6 +9,7 @@ class eatStaticBlock extends eatStatic {
 	
 	var $block_file;
 	var $content;
+	var $raw_content;
 	
 	function __construct($block){
 		if(isset($block)){
@@ -20,8 +21,14 @@ class eatStaticBlock extends eatStatic {
 		// TO DO: this needs to run through eatStaticStorage
 		if(file_exists(DATA_ROOT.'/blocks/'.$this->block_file.'.txt')){
 			$this->content = $this->read_file(DATA_ROOT.'/blocks/'.$this->block_file.'.txt');
-			return '<span class="block block-'.$this->block_file.'">'.$this->content.'</span>';
+			
 		}
+		if(file_exists(DATA_ROOT.'/blocks/'.$this->block_file.'.md')){
+			$this->raw_content = $this->read_file(DATA_ROOT.'/blocks/'.$this->block_file.'.md');
+			require_once(LIB_ROOT."/php-markdown/Markdown.inc.php");
+			$this->content = Michelf\Markdown::defaultTransform($this->raw_content);
+		}
+		return '<span class="block block-'.$this->block_file.'">'.$this->content.'</span>';
 	}
 	
 }

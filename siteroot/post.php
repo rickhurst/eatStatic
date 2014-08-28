@@ -6,8 +6,12 @@ require EATSTATIC_ROOT.'/eatStaticBlog.class.php';
 $show_prev_next = true;
 
 $post = new eatStaticBlogPost;
-
-$post->data_file_path = DATA_ROOT.'/posts/'.$slug.'.txt';
+if(file_exists(DATA_ROOT.'/posts/'.$slug.'.txt')){
+	$post->data_file_path = DATA_ROOT.'/posts/'.$slug.'.txt';
+}
+if(file_exists(DATA_ROOT.'/posts/'.$slug.'.md')){
+	$post->data_file_path = DATA_ROOT.'/posts/'.$slug.'.md';
+}
 if(file_exists($post->data_file_path)){
         $post->hydrate();
 } else {
@@ -28,19 +32,19 @@ if($post->description != ''){
         $meta_description = $post->description;
 }
 
-require ROOT.'/skin/'.SKIN.'/templates/page_top.php';
-require ROOT.'/skin/'.SKIN.'/templates/body_top.php';
+eatStatic::template('page_top.php');
+eatStatic::template('body_top.php');
 
 //print_r($post);
 //die();
 
-require ROOT.'/skin/'.SKIN.'/templates/post_item.php';
+eatStatic::template('post_item.php');
 
 if(DISQUS_ENABLED){
-        require ROOT.'/skin/global/templates/disqus_thread.php';
+        eatStatic::template('disqus_thread.php');
 }
 
-require ROOT.'/skin/'.SKIN.'/templates/body_bottom.php';
-require ROOT.'/skin/'.SKIN.'/templates/page_bottom.php';
+eatStatic::template('body_bottom.php');
+eatStatic::template('page_bottom.php');
 
 ?>

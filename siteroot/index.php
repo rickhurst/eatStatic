@@ -4,7 +4,7 @@
  * This is a so-called "front-controller" i.e. by default all page loads and "friendly urls" are
  * controlled by the logic in this file.
  * 
- * The "friendly" URL is split into an array and a switch is used to load the appropriate page or script.
+ * The "friendly" URL is split into an array and a switch is used to route to the appropriate page or script.
  *
  * You don't have to use this if you don't want to - feel free to go old skool and just load
  * pages directly! 
@@ -17,8 +17,6 @@
 /**
  * load the config file
  */
-
-session_start();
 
 require 'eatStatic_config.php';
 
@@ -274,6 +272,15 @@ try {
 			 * [TODO]: here is where we could redirect to EatStaticCMS engine 
 			 * looking for matching folder paths
 			 */
+			if($stub == ''){
+				require_once(EATSTATIC_ROOT."/eatStaticTree.class.php");
+				$tree = new eatStaticTree(DATA_ROOT.'/pages/');
+				$page = $tree->getPage(trim($url,"/"));
+
+				if(is_object($page)){
+					$stub = 'base_page.php';
+				}
+			}
 
 		break;
 	}		

@@ -1,4 +1,5 @@
 <?php
+session_start();
 error_reporting(E_ALL);
 ini_set('display_errors','On');
 
@@ -6,75 +7,55 @@ ini_set('display_errors','On');
 date_default_timezone_set('Europe/London');
 
 // dynamic ROOT
-if (!defined('ROOT')) {
-	define('ROOT', str_replace('/eatStatic_config.php', '', str_replace('\\', '/', realpath(__FILE__))));
+$root = str_replace('/eatStatic_config.php', '', str_replace('\\', '/', realpath(__FILE__)));
+
+// data folder path (assumes siteroot and data folders on same level)
+$es_data_root = str_replace('siteroot','data', $root);
+
+// eatStatic library path (assumes siteroot and library folders are on same level)
+$es_root = str_replace('siteroot','library/eatStatic', $root);
+
+// general library folder location
+$lib_root = str_replace('siteroot','library', $root);
+
+$es_cache_root = str_replace('siteroot','data/cache', $root);
+
+$local_hosts = Array(
+    'localhost',
+    'rick.ontheroad.macbook.local'
+);
+
+$es_date_format = 'D, d M Y';
+$es_skin = 'default';
+$es_blog_title = 'eatStatic Blog';
+$es_blog_tag_line = 'Demo and documentation site for eatStatic';
+$es_blog_author = 'Rick Hurst';
+$es_page_ext = '';
+$es_site_root = '/';
+$es_disqus_enabled = false;
+$es_disqus_identifier = '';
+$es_wp_urls = true;
+$es_ga_id = '';
+$es_global_keywords = 'static file CMS, static site generator, static file blog, flat file blog';
+$es_global_description = '';
+$es_login_required = false;
+$es_login_url = '/login';
+$es_storage_type = 'ES_JSON';
+$es_snapshot = false;
+$es_posts_per_page = 10;
+$es_admin_enabled = false;
+
+$db_server = 'localhost';
+$db_username = '';
+$db_password = '';
+$db_name = '';
+$db_fs_table = '';
+
+// if you want to override the default settings, add a local_settings.php file
+if(file_exists($root."/local_settings.php")){
+	require($root."/local_settings.php");
 }
 
-// data folder path (assumes admin_site and data folders on same level)
-define('DATA_ROOT', str_replace('siteroot','ontheroad', ROOT));
-
-// eatStatic library path (assumes admin_site and data folders on same level)
-define('EATSTATIC_ROOT', str_replace('siteroot','library/eatStatic', ROOT));
-
-$production = false;
-if($_SERVER['HTTP_HOST'] == 'ontheroad.rickhurst.co.uk' || $_SERVER['HTTP_HOST'] == 'campervanthings.com'){
-	$production = true;
-}
-
-require_once(EATSTATIC_ROOT."/eatStatic.class.php");
-require_once(EATSTATIC_ROOT."/eatStaticError.class.php");
-require_once(EATSTATIC_ROOT."/eatStaticStorage.class.php");
-
-if($production){
-	define('USE_CACHE', true);
-} else {
-	define('USE_CACHE', false);
-}
-
-define('NICE_DATE_FORMAT', 'D, d M Y');
-define('SKIN','ontheroad');
-define('BLOG_TITLE', 'Camper Van Things');
-define('BLOG_TAG_LINE', 'Blog about mobile working and Rocky the VW T25 (T3/Vanagon) camper van');
-define('BLOG_AUTHOR', 'Rick Hurst');
-define('PAGE_EXT', '');
-define('SITE_ROOT','/'); // change this if you move the location of the site index.php e.g. '/blog/';
-define('DISQUS_ENABLED', false);
-define('DISQUS_IDENTIFIER','rickontheroad2');
-define('GOOGLE_ANALYTICS_ID','UA-562825-12');
-define('GLOBAL_KEYWORDS', 'mobile working, camping, solar power, camper van, T25, T25 camper, VW, T3, Vanagon');
-define('GLOBAL_DESCRIPTION', 'Camper van things is a blog written by Rick Hurst about his experiences of mobile working, camping and his VW T25 (T3/Vanagon) campervan');
-define('LOGIN_REQUIRED', false);
-define('LOGIN_URL', 'login');
-define('STORAGE_TYPE', 'ES_JSON');
-define('SNAPSHOT', false);
-define('POSTS_PER_PAGE', 10);
-define('ADMIN_ENABLED', false);
-
-define('WP_URLS', true); // use wordpress url scheme
-
-define('CACHE_ROOT', str_replace('siteroot','ontheroad/cache', ROOT));
-
-// SQL fake filesystem settings
-define('SQL_FS', false);
-if('SQL_FS'){
-    define('DB_SERVER', 'localhost');
-    define('DB_USERNAME', '');
-    define('DB_PASSWORD', '');
-    define('DB_DATABASE', '');
-    define('SQL_FS_TABLE', 'eatstatic_fs');
-    require_once(EATSTATIC_ROOT."/eatStaticSQL.class.php");
-    require_once(EATSTATIC_ROOT."/eatStaticFakeFS.class.php");
-}
-
-//$login_exceptions = array('login','logged-out');
-if(ADMIN_ENABLED){
-    require 'eatStatic_admin_local_settings.php';
-    require_once(EATSTATIC_ROOT."/eatStaticAdminController.class.php");
-}
-
-
-// create an error object to store error messages
-$err = new eatStaticError;
-
+require $es_root .'/eatStaticRuntime.php';
 
 ?>

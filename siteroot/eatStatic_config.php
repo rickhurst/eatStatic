@@ -1,6 +1,7 @@
 <?php
 session_start();
-error_reporting(E_ALL);
+//error_reporting(E_ALL);
+error_reporting(E_ALL ^ E_STRICT);
 ini_set('display_errors','On');
 
 // keep php 5.3 happy

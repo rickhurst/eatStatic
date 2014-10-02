@@ -4,6 +4,11 @@
 - create dev branch for new features to be cherry picked into master:
 	- DONE 'prev' and 'next' on posts (shard all posts by year/month? cache page specific metadata on demand looking up against all posts?)
 	- keyword search
-	- category RSS feeds
+	- DONE category RSS feeds
 	- online editing and gallery uploading (http://blueimp.github.com/jQuery-File-Upload/)
 	- support markdown http://markitup.jaysalvat.com/home/
+
+- replace lightbox with fresco or similar:
+  http://www.frescojs.com/documentation/usage
+
+- improve design - bg image loaded via js for larger screens, default is blocked/ highly pixellated version

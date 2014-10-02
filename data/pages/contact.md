@@ -1,0 +1,1 @@
+<p>You can email me at <a href="mailto:rick.hurst@gmail.com">rick.hurst@gmail.com</a>, or tweet me at <a href="http://twitter.com/rickhurst">@rickhurst</a>.</p>

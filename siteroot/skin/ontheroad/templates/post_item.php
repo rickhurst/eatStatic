@@ -2,7 +2,7 @@
 	<a href="<?php echo $post->uri ?>" class="link"><h2><?php echo $post->title ?></h2></a>
 	
 	<div class="ago">
-	This post was written <?php echo eatStaticBlog::time_elapsed_string($post->timestamp);?> ago.
+	This post was written <?php echo eatStaticBlog::time_elapsed_string($post->timestamp);?> ago, by <?php echo $post->author ?>.
 	</div>
 	
 	<div class="date"><?php echo $post->nice_date ?></div>
@@ -10,7 +10,7 @@
 	<?php
 	if(sizeof($post->gallery_items) > 0){
 	?>
-	<div class="gallery">
+	<div class="gallery" id="gallery-<?php echo $post->slug ?>">
 		<?php
 		foreach($post->gallery_items as $item){
 			?>
@@ -25,11 +25,12 @@
 		<div class="clear"><!-- --></div>
 		<?php //echo "here";print_r($gallery->captions); ?>
 	</div>
-	<script type="text/javascript">
-	$(function() {
-		$('.gallery a.lightbox-<?php echo $post->slug ?>').lightBox({fixedNavigation:true});
-	});
-	</script>
+
+	<?php 
+	// TODO move this into blog class logic somewhere..
+	$blog->gallery_ids[] = '#gallery-'.$post->slug.' a';
+	?>
+
 	<?php	
 	}
 	

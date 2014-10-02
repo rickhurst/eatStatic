@@ -4,8 +4,8 @@ require EATSTATIC_ROOT.'/eatStaticTag.class.php';
 
 $tags = eatStaticTag::getAll();
 
-require ROOT.'/skin/'.SKIN.'/templates/page_top.php';
-require ROOT.'/skin/'.SKIN.'/templates/body_top.php';
+eatStatic::template('page_top.php');
+eatStatic::template('body_top.php');
 ?>
 <ul class="category-list">	
 <?php
@@ -23,7 +23,7 @@ foreach($tags as $tag){
 </ul>
 <?php
 
-require ROOT.'/skin/'.SKIN.'/templates/body_bottom.php';
-require ROOT.'/skin/'.SKIN.'/templates/page_bottom.php';
+eatStatic::template('body_bottom.php');
+eatStatic::template('page_bottom.php');
 
 ?>

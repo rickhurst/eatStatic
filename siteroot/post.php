@@ -21,6 +21,8 @@ if(file_exists($post->data_file_path)){
         die();
 }
 
+//print_r($post);
+
 
 $page_title = BLOG_TITLE.' :: '.$post->title;
 

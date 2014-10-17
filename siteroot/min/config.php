@@ -52,7 +52,7 @@ if (!defined('ROOT')) {
 }
 
 // data folder path (assumes admin_site and data folders on same level)
-define('DATA_ROOT', str_replace('siteroot','ontheroad', ROOT));
+define('DATA_ROOT', str_replace('siteroot','data', ROOT));
 $min_cachePath = DATA_ROOT.'/cache';
 
 /**

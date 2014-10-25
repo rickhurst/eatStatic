@@ -45,6 +45,7 @@ $es_storage_type = 'ES_JSON';
 $es_snapshot = false;
 $es_posts_per_page = 10;
 $es_admin_enabled = false;
+$es_admin_root = '/admin/';
 
 $db_server = 'localhost';
 $db_username = '';

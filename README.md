@@ -1,6 +1,8 @@
 eatStatic
 ==========
 
+update December 2014 - [Status of eatStatic December 2014](http://eatstatic.olivewoodstudio.com/2014/12/19/eatstatic-status/)
+
 eatStatic is am open-source text file driven blog engine which was originally put together to allow me to maintain a travel blog with limited internet connectivity - blog posts were written as simple text files in textmate/ emacs and uploaded to the server when a connection was available.
 
 There is also a simple thumbnail gallery system to allow thumbnail galleries to appear in a post, and an image cache system to allow resized versions of uploaded images to be displayed (and cached).

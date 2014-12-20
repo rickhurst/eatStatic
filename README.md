@@ -33,13 +33,11 @@ Future of eatStatic
 
 I intend to maintain and develop this with a strong emphasis on the blogging capabilities - i.e. making it easy and convenient to blog and upload/ maintain photo galleries. I may add some basic page and menu creation and management, but don't intend to make it into a full featured CMS, in fact it has been designed with the idea that you can drop an eatStatic blog (or several subject specific blogs) into another PHP website being managed by another CMS. However, never say never! 
 
-I've also [toyed with idea of creating a python/ django port](http://www.rickhurst.co.uk/2012/01/21/long-live-eatstatic/), but I have so many other personal project ideas, this has gone on the backburner..
-
 Some other features I would like to add in the nearish future:-
 
-* markdown support
-* blog post and block editing
-* image uploading and gallery management via web
+* markdown support <- DONE
+* blog post and block editing (via web admin) <- POST EDITING DONE
+* image uploading and gallery management via web <!- PARTLY DONE
 * prev' and 'next' on posts <- DONE
 * keyword search
 * category RSS feeds <- DONE

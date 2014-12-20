@@ -5,9 +5,9 @@ Looking at this blog and the <a href="https://github.com/rickhurst/eatStatic">gi
 <code> echo eatStatic::block("about"); </code>
 
 
-To render a block of markdown text as HTML, and other bits and pieces.
+To render a block of markdown text as HTML, and other bits and pieces like that.
 
-I haven't started any new blogs or websites recently, so i'm not even sure if i'd use eatStaticBlog myself for a new website, as there are so many <a href="http://www.modernstatic.com/">alternatives</a> out there now.
+I haven't started any new blogs or websites recently, so i'm not even sure if i'd use eatStaticBlog myself for a new website, as there are so many <a href="http://www.modernstatic.com/">excellent alternatives</a> out there now (look at the grey ones, which are filesystem based dynamic systems rather then static file generators), though not all of them are open source.
 
 I'll continue to use it for existing stuff for the foreseable future - there's a rudimentary admin interface in there now, allowing posts to be added and edited via the web if you don't want to or can't compose them in a text editor. No intructions how to set this up, in fact i'm not even sure myself (TODO: installation instructions).!
 

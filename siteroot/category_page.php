@@ -8,7 +8,7 @@ foreach($items as $post_file){
 	$post->data_file_path = $post_file;
 	$post->hydrate();
 	
-	require ROOT.'/skin/'.SKIN.'/templates/post_item.php';
+	eatStatic::template('post_item.php');
 	
 }
 

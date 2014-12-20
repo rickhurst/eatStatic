@@ -20,6 +20,7 @@
 				<footer>
 			
 					<?php echo eatStatic::block("footer"); ?>
+
 				</footer>
 				
 		</div><!-- container -->

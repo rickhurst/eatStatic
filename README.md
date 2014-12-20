@@ -37,7 +37,7 @@ Some other features I would like to add in the nearish future:-
 
 * markdown support <- DONE
 * blog post and block editing (via web admin) <- POST EDITING DONE
-* image uploading and gallery management via web <!- PARTLY DONE
+* image uploading and gallery management via web <- PARTLY DONE
 * prev' and 'next' on posts <- DONE
 * keyword search
 * category RSS feeds <- DONE

@@ -1,0 +1,16 @@
+Status of eatStatic December 2014
+
+Looking at this blog and the <a href="https://github.com/rickhurst/eatStatic">github repo</a>, you'd be forgiven for thinking that I have given up on eatStatic. It's true to say that i'm not really pushing or promoting it for other people, but I still use it on my own stuff. In fact, having now seperated the core functionality into a drop-in library <a href="https://github.com/rickhurst/eatStaticLib">"eatStaticLib"</a> and included it as a submodule, I tend to drop this library into most PHP projects that I work on so that I can take advantage of helpers such as:  
+
+<code> echo eatStatic::block("about"); </code>
+
+
+To render a block of markdown text as HTML, and other bits and pieces.
+
+I haven't started any new blogs or websites recently, so i'm not even sure if i'd use eatStaticBlog myself for a new website, as there are so many <a href="http://www.modernstatic.com/">alternatives</a> out there now.
+
+I'll continue to use it for existing stuff for the foreseable future - there's a rudimentary admin interface in there now, allowing posts to be added and edited via the web if you don't want to or can't compose them in a text editor. No intructions how to set this up, in fact i'm not even sure myself (TODO: installation instructions).!
+
+I'm also working on a system of invite-only posts/ topics - e.g. a way of using eatStaticBlog for a private travel blog for friends and family so that you can invite them via email to view your protected blog using a revokeable token (no conventional username/password without publishing your every movement to the public.
+--
+tags: project update
